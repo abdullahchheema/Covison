@@ -1,0 +1,66 @@
+import type { Metadata } from 'next'
+import { ArrowRight, Calendar } from 'lucide-react'
+import { Container } from '@/components/ui/Container'
+import { Badge } from '@/components/ui/Badge'
+import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
+import { FAQ } from '@/components/sections/FAQ'
+import { CTASection } from '@/components/sections/CTASection'
+
+export const metadata: Metadata = {
+  title: 'FAQ — Frequently Asked Questions',
+  description:
+    'Answers to common questions about working with Covison on AI automation, website development, and AI chatbot projects.',
+}
+
+export default function FAQPage() {
+  return (
+    <>
+      <section className="relative isolate overflow-hidden bg-canvas">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10 opacity-60"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+            maskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%)',
+          }}
+        />
+
+        <Container className="flex flex-col items-start py-16 sm:py-20 lg:py-24">
+          <Reveal>
+            <div className="flex max-w-3xl flex-col gap-5">
+              <span className="w-fit">
+                <Badge variant="accent">FAQ</Badge>
+              </span>
+
+              <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                Common questions, <span className="text-sheen">answered</span>.
+              </h1>
+
+              <p className="max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+                Everything you need to know before getting started with Covison.
+              </p>
+
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:gap-4">
+                <Button href="/contact" size="lg">
+                  <Calendar size={18} />
+                  Book a strategy call
+                </Button>
+                <Button href="/services" variant="secondary" size="lg">
+                  View our services
+                  <ArrowRight size={18} />
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <FAQ />
+
+      <CTASection />
+    </>
+  )
+}

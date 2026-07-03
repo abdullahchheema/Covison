@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Design tokens — exposed to Tailwind as utilities (bg-surface, text-muted, …)
+---------------------------------------------------------------------------- */
+@theme {
+  --font-sans: var(--font-dm-sans), Arial, sans-serif;
+
+  /* Surfaces */
+  --color-canvas: #111113;
+  --color-surface: #17171a;
+  --color-surface-2: #1f1f23;
+
+  /* Text */
+  --color-ink: #f4f4f6;
+  --color-muted: #9b9ba4;
+  --color-faint: #6b6b74;
+
+  /* Lines / borders */
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Radius scale */
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+}
+
+/* ----------------------------------------------------------------------------
+   Base layer — typographic hierarchy & sensible defaults
+---------------------------------------------------------------------------- */
+@layer base {
+  * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Headings: tight leading, slight negative tracking, strong weight */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: 1.65;
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Reusable component utilities
+---------------------------------------------------------------------------- */
+@layer components {
+  /* Section eyebrow / kicker label */
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* Monochrome sheen for large display numbers / emphasis */
+  .text-sheen {
+    background: linear-gradient(180deg, #ffffff 0%, #9a9aa2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Card surface with hairline border + lift on hover */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-2xl);
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .card-hover:hover {
+    border-color: var(--color-line-strong);
+    background-color: var(--color-surface-2);
+  }
+
+  /* White pill button */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Animations
+---------------------------------------------------------------------------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Focus, selection, scrollbar
+---------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
