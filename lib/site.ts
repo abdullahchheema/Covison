@@ -5,9 +5,7 @@ export const siteConfig = {
     'Covison designs AI-powered systems and exceptional digital experiences for B2B companies ready to operate at a higher level.',
   email: 'hello@covison.co',
   whatsapp: '923376044451',
-  // Booking: set calLink to your real Cal.com path (e.g. 'covison/30min') and flip calConfigured to true.
-  calLink: 'covison/strategy-call',
-  calConfigured: false,
+  calLink: 'covison/30min',
   url: 'https://covison.co',
 }
 
@@ -461,13 +459,4 @@ export const caseStudies = [
       { value: '30 days', label: 'To full adoption' },
     ],
   },
-]
-
-export const budgetOptions = [
-  { value: '', label: 'Select a budget range' },
-  { value: 'under-5k', label: 'Under $5,000' },
-  { value: '5k-15k', label: '$5,000 – $15,000' },
-  { value: '15k-30k', label: '$15,000 – $30,000' },
-  { value: '30k-plus', label: '$30,000+' },
-  { value: 'not-sure', label: 'Not sure yet' },
 ]
