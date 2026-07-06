@@ -7,18 +7,8 @@ import { Menu, X } from 'lucide-react'
 import { navigation } from '@/lib/site'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { Logo } from '@/components/layout/Logo'
 import { cn } from '@/lib/cn'
-
-function Logo() {
-  return (
-    <Link href="/" className="flex items-center gap-2" aria-label="Covison home">
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-sm font-bold text-canvas">
-        C
-      </span>
-      <span className="text-xl font-bold tracking-tight text-ink">covison</span>
-    </Link>
-  )
-}
 
 export function Navbar() {
   const [open, setOpen] = useState(false)

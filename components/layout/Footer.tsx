@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { services } from '@/lib/site'
 import { Container } from '@/components/ui/Container'
+import { Logo } from '@/components/layout/Logo'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -77,6 +78,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col-reverse items-center justify-between gap-6 border-t border-line pt-8 sm:flex-row">
+          <Logo size="footer" />
+
           <p className="text-xs text-faint">© {year} Covison. All rights reserved.</p>
 
           <div className="flex items-center gap-8">
@@ -87,14 +90,6 @@ export function Footer() {
               Terms of Service
             </Link>
           </div>
-
-          <Link
-            href="/"
-            aria-label="Covison home"
-            className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-sm font-bold text-canvas"
-          >
-            C
-          </Link>
         </div>
       </Container>
     </footer>
