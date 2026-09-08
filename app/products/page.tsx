@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { products } from '@/lib/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 import { Figure } from '@/components/ui/Figure'
-import { getServiceIcon } from '@/lib/service-icons'
 import { CTASection } from '@/components/sections/CTASection'
 import Link from 'next/link'
 
@@ -27,7 +27,6 @@ export default function ProductsPage() {
       <Section spacing="lg" className="pt-0">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {products.map((product, i) => {
-            const Icon = getServiceIcon(product.icon)
             return (
               <Reveal key={product.id} delay={i * 0.06}>
                 <Link href={`/products/${product.id}`} className="group flex flex-col gap-5">
@@ -35,7 +34,16 @@ export default function ProductsPage() {
                     src={`/images/products/${product.id}-hero.png`}
                     alt=""
                     sizes="(min-width: 640px) 50vw, 100vw"
-                    fallback={<Icon size={32} className="m-auto text-brand" aria-hidden />}
+                    fallback={
+                      <Image
+                        src="/logo-mark.png"
+                        alt=""
+                        width={64}
+                        height={64}
+                        unoptimized
+                        className="m-auto h-16 w-16 object-contain"
+                      />
+                    }
                     className="aspect-[16/10] w-full rounded-2xl"
                   />
                   <div>

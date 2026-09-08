@@ -365,7 +365,6 @@ export const services = [
 export const products = [
   {
     id: 'crm',
-    icon: 'Users',
     title: 'Covison CRM',
     tagline: 'Your sales pipeline, finally working as one.',
     short: 'Manage leads, relationships, follow-ups, and sales workflows from one unified workspace.',

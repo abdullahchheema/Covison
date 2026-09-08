@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
@@ -211,23 +212,27 @@ export function Navbar() {
                         >
                           <div className="rounded-2xl bg-surface p-6 shadow-xl">
                             <div className="flex flex-col gap-1">
-                              {products.map((product) => {
-                                const Icon = getServiceIcon(product.icon)
-                                return (
-                                  <Link
-                                    key={product.id}
-                                    href={`/products/${product.id}`}
-                                    onClick={() => setProductsOpen(false)}
-                                    className="-m-2 flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-surface-2"
-                                  >
-                                    <Icon size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
-                                    <span className="flex flex-col gap-0.5">
-                                      <span className="text-sm font-semibold text-foreground">{product.title}</span>
-                                      <span className="text-xs leading-relaxed text-text-2">{product.short}</span>
-                                    </span>
-                                  </Link>
-                                )
-                              })}
+                              {products.map((product) => (
+                                <Link
+                                  key={product.id}
+                                  href={`/products/${product.id}`}
+                                  onClick={() => setProductsOpen(false)}
+                                  className="-m-2 flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-surface-2"
+                                >
+                                  <Image
+                                    src="/logo-mark.png"
+                                    alt=""
+                                    width={20}
+                                    height={20}
+                                    unoptimized
+                                    className="mt-0.5 h-5 w-5 flex-shrink-0 object-contain"
+                                  />
+                                  <span className="flex flex-col gap-0.5">
+                                    <span className="text-sm font-semibold text-foreground">{product.title}</span>
+                                    <span className="text-xs leading-relaxed text-text-2">{product.short}</span>
+                                  </span>
+                                </Link>
+                              ))}
                             </div>
                             <div className="mt-6 border-t border-line-soft pt-5">
                               <Button href="/products" variant="link" onClick={() => setProductsOpen(false)}>
