@@ -1,0 +1,38 @@
+{
+  "client": "Infinity",
+  "tag": "GenAI Tooling",
+  "title": "From Weeks to Hours: GenAI Logo Prototyping",
+  "blurb": "Client-facing generative AI for logo concepts, with studio style families, guided prompts, multi-round iteration, and auth and cost tracking on AWS. Designers focus on refinement, not endless first drafts.",
+  "result": "Concept turnaround cut from weeks to hours",
+  "order": 6,
+  "meta": {
+    "industry": "Creative tooling, generative AI for design"
+  },
+  "whoFor": "Design studios and agencies that spend a disproportionate amount of time on early-stage logo concepting before a designer ever touches refinement work.",
+  "challengeIntro": "The earliest stage of a logo project, generating enough varied first-draft concepts to react to, eats real designer hours without needing a designer's judgment yet. Clients want options fast, but every round of first drafts competes with the refinement work that actually needs a professional eye.",
+  "challengePoints": [
+    "Early concepting consumed disproportionate designer time relative to its value.",
+    "Clients expected fast turnaround on initial directions before committing to one.",
+    "Ad hoc AI tools did not reflect the studio's actual style families or process.",
+    "No cost or usage visibility as generation volume grew across clients."
+  ],
+  "identifiedIntro": "The opportunity was not to replace designers with generative AI, it was to move the point where a designer gets involved further downstream, past the earliest, lowest-judgment drafts.",
+  "builtIntro": "Covison built a client-facing generative AI tool for logo concepting on AWS, including:",
+  "builtPoints": [
+    "Studio-defined style families to keep output on-brand",
+    "Guided prompts so clients could direct concepts without design expertise",
+    "Multi-round iteration on generated concepts",
+    "Authentication and cost tracking per client"
+  ],
+  "whyNotOffTheShelf": "General-purpose image generators produce logo-shaped output with no concept of a studio's specific style families, no client-facing guided flow, and no built-in usage accounting the studio could bill against.",
+  "productionReality": [
+    "Deployed as a client-facing tool, not an internal-only prototype.",
+    "Runs on AWS with authentication and per-client cost tracking in place.",
+    "Supports multiple rounds of iteration rather than one-shot generation."
+  ],
+  "outcomeBullets": [
+    "Concept turnaround moved from weeks to hours.",
+    "Designers spend more time on refinement and less on generating first drafts.",
+    "Studio can offer faster initial turnaround without adding headcount."
+  ]
+}

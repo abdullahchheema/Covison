@@ -1,0 +1,39 @@
+{
+  "client": "T1C",
+  "tag": "AI Infrastructure",
+  "title": "Neuromorphic SDK Six Months Ahead of Schedule",
+  "blurb": "A full neuromorphic SDK layer, including a PyTorch bridge, spiking and hybrid conversion, visualization, simulation, and observability, delivered roughly six months faster than planned.",
+  "result": "Delivered roughly six months ahead of schedule",
+  "order": 4,
+  "meta": {
+    "industry": "Neuromorphic computing, developer tooling"
+  },
+  "whoFor": "Hardware and research teams building on neuromorphic computing who need a software layer that lets existing PyTorch work translate into spiking or hybrid models without starting from scratch.",
+  "challengeIntro": "Neuromorphic hardware is only as useful as the tooling around it. Research and engineering teams already have models built in standard frameworks like PyTorch, but converting that work into spiking or hybrid representations, then actually visualizing, simulating, and debugging it, usually means stitching together disconnected internal tools.",
+  "challengePoints": [
+    "Existing PyTorch models had no clean path into spiking or hybrid representations.",
+    "No unified way to visualize or simulate model behavior on the new architecture.",
+    "Limited observability made it hard to debug behavior once converted.",
+    "Internal timeline pressure to get a usable SDK in front of hardware partners."
+  ],
+  "identifiedIntro": "Covison scoped this as an SDK problem, not a research problem: the models and hardware already existed. What was missing was the bridge, and the surrounding developer experience, that would make the hardware usable by teams who already think in PyTorch.",
+  "builtIntro": "Covison built a full neuromorphic SDK layer, including:",
+  "builtPoints": [
+    "A PyTorch bridge for existing models",
+    "Spiking and hybrid conversion",
+    "Visualization tooling",
+    "Simulation support",
+    "Observability into model behavior"
+  ],
+  "whyNotOffTheShelf": "There is no mature, general-purpose SDK that bridges standard deep learning frameworks into neuromorphic, spiking-capable hardware with production-grade visualization and observability included. This had to be purpose-built for the target architecture.",
+  "productionReality": [
+    "Delivered as a complete SDK layer, not a proof of concept.",
+    "Covers the full path from PyTorch model to spiking or hybrid execution.",
+    "Includes the visualization and observability tooling needed for day-to-day development, not just the conversion logic."
+  ],
+  "outcomeBullets": [
+    "Delivered roughly six months ahead of the original schedule.",
+    "Gave the hardware team a usable SDK instead of a research prototype.",
+    "Removed the need for teams to hand-convert PyTorch models to the new architecture."
+  ]
+}

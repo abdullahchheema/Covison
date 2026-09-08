@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ReactNode } from 'react'
 
 interface RevealProps {
@@ -16,12 +16,18 @@ export function Reveal({
   direction = 'up',
   className = '',
 }: RevealProps) {
+  const prefersReducedMotion = useReducedMotion()
+
   const directions = {
-    up: { y: 30, x: 0 },
-    down: { y: -30, x: 0 },
-    left: { y: 0, x: 30 },
-    right: { y: 0, x: -30 },
+    up: { y: 12, x: 0 },
+    down: { y: -12, x: 0 },
+    left: { y: 0, x: 12 },
+    right: { y: 0, x: -12 },
     none: { y: 0, x: 0 },
+  }
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>
   }
 
   return (
@@ -29,7 +35,7 @@ export function Reveal({
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}

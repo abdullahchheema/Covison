@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { services } from '@/lib/site'
+import { Mail, MessageCircle } from 'lucide-react'
+import { LinkedInIcon } from '@/components/ui/LinkedInIcon'
+import { services, footerNav, siteConfig, affiliate } from '@/lib/site'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/layout/Logo'
 
@@ -11,61 +12,71 @@ export function Footer() {
     {
       title: 'Services',
       links: [
-        ...services.slice(0, 4).map((s) => ({ label: s.title, href: `/services#${s.id}` })),
+        ...services.slice(0, 4).map((s) => ({ label: s.title, href: `/services/${s.id}` })),
         { label: 'All Services', href: '/services' },
       ],
     },
-    {
-      title: 'Company',
-      links: [
-        { label: 'About', href: '/about' },
-        { label: 'Work', href: '/work' },
-        { label: 'Industries', href: '/industries' },
-        { label: 'Contact', href: '/contact' },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
-        { label: 'Our Process', href: '/process' },
-        { label: 'FAQ', href: '/faq' },
-        { label: 'Results & Reviews', href: '/results' },
-      ],
-    },
+    { title: 'Company', links: footerNav.company },
+    { title: 'Resources', links: footerNav.resources },
+    { title: 'Legal', links: footerNav.legal },
   ]
 
   return (
-    <footer className="border-t border-line bg-[#0c0c0e]">
-      <Container className="py-14 sm:py-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-          {/* CTA */}
-          <div className="flex flex-col gap-5 lg:max-w-xs">
-            <div className="flex flex-col gap-1.5">
-              <span className="text-sm text-muted">Work with us</span>
-              <p className="text-lg font-semibold leading-snug text-ink sm:text-xl">
-                Start with a free, thirty-minute strategy call.
-              </p>
+    <footer className="border-t border-white/10 bg-ink text-white">
+      <Container className="py-16 sm:py-20">
+        <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
+          {/* Identity + contact */}
+          <div className="flex flex-col gap-6 lg:max-w-xs">
+            <div className="flex items-center gap-4">
+              <Logo size="footer" onInk />
+              {siteConfig.linkedin && (
+                <a
+                  href={siteConfig.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Covison on LinkedIn"
+                  className="flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-white transition-colors hover:bg-white/10"
+                >
+                  <LinkedInIcon size={16} />
+                </a>
+              )}
             </div>
-            <Link
-              href="/contact"
-              className="btn-pill w-fit bg-white px-5 py-2.5 text-sm font-medium text-canvas hover:bg-white/90"
-            >
-              Let&apos;s talk
-              <ArrowRight size={16} />
-            </Link>
+
+            <p className="max-w-[30ch] text-sm leading-relaxed text-white/70">
+              {siteConfig.description}
+            </p>
+
+            <div className="flex flex-col gap-2">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-brand-violet"
+              >
+                <Mail size={15} />
+                {siteConfig.email}
+              </a>
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-brand-violet"
+              >
+                <MessageCircle size={15} />
+                WhatsApp
+              </a>
+            </div>
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:gap-x-16">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:gap-x-12">
             {columns.map((col) => (
               <nav key={col.title} className="flex flex-col gap-4">
-                <h3 className="eyebrow">{col.title}</h3>
+                <h3 className="eyebrow eyebrow-invert">{col.title}</h3>
                 <ul className="flex flex-col gap-3">
                   {col.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-muted transition-colors hover:text-ink"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -77,19 +88,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-center justify-between gap-6 border-t border-line pt-8 sm:flex-row">
-          <Logo size="footer" />
-
-          <p className="text-xs text-faint">© {year} Covison. All rights reserved.</p>
-
-          <div className="flex items-center gap-8">
-            <Link href="/privacy" className="text-xs text-faint transition-colors hover:text-ink">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-xs text-faint transition-colors hover:text-ink">
-              Terms of Service
-            </Link>
-          </div>
+        <div className="mt-14 flex flex-col items-center gap-2 border-t border-white/10 pt-8 text-center">
+          <p className="eyebrow eyebrow-invert">© {year} Covison. All rights reserved.</p>
+          <p className="max-w-md text-xs text-white/50">
+            Covison is affiliated with {affiliate.name}, registered in {affiliate.country} (company
+            no. {affiliate.companyNumber}), {affiliate.address}.
+          </p>
         </div>
       </Container>
     </footer>

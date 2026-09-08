@@ -1,0 +1,38 @@
+{
+  "client": "Strong",
+  "tag": "Lead Qualification",
+  "title": "Franchise Lead Qualification at Scale",
+  "blurb": "Qualification logic layered on top of existing CRMs, with MCP-powered access, semantic and rule-based scoring, daily top-lead digests, and AI-assisted outreach, driving over $2M in attributable franchise revenue in one month.",
+  "result": "Over $2M in attributable revenue in one month",
+  "order": 10,
+  "meta": {
+    "industry": "Fitness franchising, multi-location lead management"
+  },
+  "whoFor": "Multi-location franchise brands where every location's leads sit in the same CRM, but nobody at the corporate level can tell which leads across the whole network are actually worth chasing first.",
+  "challengeIntro": "Franchise networks generate leads at scale, but scale is exactly the problem: with leads coming in across every location, there was no consistent way to tell a hot lead at one franchise from a cold one at another, so outreach happened on gut feel and whoever had time that day.",
+  "challengePoints": [
+    "Leads were scattered across many franchise locations in the same CRM.",
+    "No consistent scoring meant hot leads and cold leads got the same priority.",
+    "Outreach depended on individual location staff having time and initiative.",
+    "No systematic way to surface which leads mattered most across the whole network."
+  ],
+  "identifiedIntro": "The fix did not require replacing the CRM every location already used. It required a qualification layer on top of it that could see across the whole network and tell every location which leads to call first.",
+  "builtIntro": "Covison built a qualification layer on top of the existing CRMs, using:",
+  "builtPoints": [
+    "MCP-powered access into the existing CRM data",
+    "Semantic and rule-based scoring of every lead",
+    "Daily top-lead digests sent to each location",
+    "AI-assisted outreach to engage leads faster"
+  ],
+  "whyNotOffTheShelf": "Native CRM scoring tools work within one CRM's data model and do not layer semantic understanding on top of rule-based scoring across a multi-location franchise structure. This needed a qualification layer built to sit above the CRM, not inside it.",
+  "productionReality": [
+    "Running in production across the franchise network, not a single pilot location.",
+    "Daily digests keep every location working from a prioritized list.",
+    "AI-assisted outreach runs alongside, not instead of, existing staff."
+  ],
+  "outcomeBullets": [
+    "Over $2M in attributable franchise revenue in one month.",
+    "Every location now works from a consistently scored lead list.",
+    "Outreach happens by priority, not by whoever has time that day."
+  ]
+}

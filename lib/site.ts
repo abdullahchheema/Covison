@@ -4,63 +4,171 @@ export const siteConfig = {
   description:
     'Covison designs AI-powered systems and exceptional digital experiences for B2B companies ready to operate at a higher level.',
   email: 'hello@covison.co',
-  whatsapp: '923376044451',
+  whatsapp: '447417579231',
   calLink: 'covison/30min',
   url: 'https://covison.co',
+  // Left empty until a company LinkedIn page exists; Footer renders no icon until this is set.
+  linkedin: '',
+}
+
+// Covison is affiliated with this UK-registered company. Referenced in the
+// footer, About page, and legal pages.
+export const affiliate = {
+  name: 'Prime Galleria Ltd',
+  companyNumber: '16604562',
+  address: '29 Spring Street, Accrington, BBE0HE',
+  country: 'United Kingdom',
 }
 
 export const navigation = [
   { label: 'Services', href: '/services' },
-  { label: 'Industries', href: '/industries' },
+  { label: 'Products', href: '/products' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Insights', href: '/insights' },
   { label: 'About', href: '/about' },
-  { label: 'Work', href: '/work' },
   { label: 'Contact', href: '/contact' },
 ]
+
+export const footerNav = {
+  company: [
+    { label: 'About', href: '/about' },
+    { label: 'Industries', href: '/industries' },
+    { label: 'Covison CRM', href: '/products/crm' },
+    { label: 'Contact', href: '/contact' },
+  ],
+  resources: [
+    { label: 'Our Process', href: '/process' },
+    { label: 'Insights', href: '/insights' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Results & Reviews', href: '/results' },
+  ],
+  legal: [
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
+  ],
+}
+
+export const serviceCategories = [
+  {
+    id: 'ai-automation',
+    label: 'AI & Automation',
+    icon: 'Sparkles',
+    description: 'Strategy, agents, chatbots, lead gen, CRM automation, and hands-on training.',
+  },
+  {
+    id: 'software-digital',
+    label: 'Software & Digital',
+    icon: 'Code2',
+    description: 'Websites, custom platforms, e-commerce, and the integrations that connect them.',
+  },
+  {
+    id: 'infrastructure-data',
+    label: 'Infrastructure & Data',
+    icon: 'Server',
+    description: 'Cloud architecture, DevOps, and the data pipelines your systems run on.',
+  },
+  {
+    id: 'logistics',
+    label: 'Logistics',
+    icon: 'Truck',
+    description: 'Freight dispatching for owner-operators and small fleets.',
+  },
+] as const
 
 export const services = [
   {
     id: 'consulting',
     icon: 'Lightbulb',
+    category: 'ai-automation',
     title: 'AI Consulting & Strategy',
     short: 'Map your path to AI adoption with expert guidance.',
     description:
-      'We audit your current operations, identify high-impact automation opportunities, and deliver a clear roadmap to competitive advantage. No fluff — just actionable insight tied to real business outcomes.',
+      'We audit your current operations, identify high-impact automation opportunities, and deliver a clear roadmap to competitive advantage. No fluff, just actionable insight tied to real business outcomes.',
+    problem:
+      'Most businesses know AI is important but have no clear plan for where to start or how to prioritise.',
+    details: [
+      'Comprehensive AI readiness audit of your current operations',
+      'Identification of your top 3–5 automation opportunities by ROI',
+      'Detailed technical and business roadmap with phased delivery',
+      'Vendor and tooling recommendations tailored to your stack',
+      'Executive presentation deck for stakeholder alignment',
+    ],
     outcomes: ['AI readiness audit', 'Automation opportunity map', 'Prioritised roadmap', 'ROI projections'],
   },
   {
     id: 'automation',
     icon: 'Zap',
+    category: 'ai-automation',
     title: 'AI Workflow Automation',
     short: 'Eliminate manual, repetitive work across your business.',
     description:
       'We build custom automations, intelligent agents, and system integrations that run around the clock without human intervention. Your team focuses on strategy while the machines handle the rest.',
+    problem:
+      "Manual, repetitive tasks drain your team's time, introduce errors, and create a ceiling on your capacity to scale.",
+    details: [
+      'Custom AI agent development for your specific workflows',
+      'Integration with your existing tools (CRM, ERP, comms, databases)',
+      'Automated data pipelines, reporting, and notifications',
+      'End-to-end testing and deployment to production',
+      'Monitoring dashboards and ongoing optimisation support',
+    ],
     outcomes: ['Custom AI agents', 'System integrations', 'Process automation', '24/7 operation'],
   },
   {
     id: 'web',
     icon: 'Monitor',
+    category: 'software-digital',
     title: 'Website Design & Development',
     short: 'First impressions win or lose deals.',
     description:
       'We craft premium B2B websites and web applications that establish trust, communicate value, and convert visitors into qualified leads. Performance-optimised, beautifully designed, and built to grow.',
+    problem:
+      'Generic websites fail to convert B2B buyers. You need a site that communicates your value with precision and drives qualified action.',
+    details: [
+      'Custom brand identity and UX design (no templates)',
+      'Next.js / React development, optimised for speed and SEO',
+      'CMS integration for easy content management (Sanity, Contentful)',
+      'Conversion-focused landing pages and lead capture flows',
+      'Analytics setup, A/B testing readiness, and performance monitoring',
+    ],
     outcomes: ['Custom design', 'Next.js / React', 'CMS integration', 'Conversion-focused'],
   },
   {
     id: 'chatbots',
     icon: 'MessageSquare',
+    category: 'ai-automation',
     title: 'AI Chatbots & Assistants',
     short: 'Deploy intelligent assistants that never clock out.',
     description:
-      'We build AI assistants that handle customer inquiries, onboard new clients, and surface internal knowledge — trained on your business data and available 24/7. Your best team member, always on.',
+      'We build AI assistants that handle customer inquiries, onboard new clients, and surface internal knowledge, trained on your business data and available 24/7. Your best team member, always on.',
+    problem:
+      'Your team spends hours answering the same questions. Prospects don\'t get answers fast enough, and internal knowledge is siloed.',
+    details: [
+      'Custom AI training on your products, FAQs, and internal docs',
+      'Multi-channel deployment (website, Slack, email, WhatsApp)',
+      'CRM integration to capture and qualify leads automatically',
+      'Escalation flows to route complex queries to human agents',
+      'Analytics on resolution rate, topic trends, and satisfaction',
+    ],
     outcomes: ['Custom AI training', 'CRM integration', 'Multi-channel deploy', 'Analytics dashboard'],
   },
   {
     id: 'lead-generation',
     icon: 'Target',
+    category: 'ai-automation',
     title: 'AI Lead Generation',
     short: 'Fill your pipeline with qualified prospects, not cold names.',
     description:
-      'We build AI-powered prospecting and outbound systems that identify, enrich, and engage your ideal buyers at scale — so your sales team spends time closing, not searching.',
+      'We build AI-powered prospecting and outbound systems that identify, enrich, and engage your ideal buyers at scale, so your sales team spends time closing, not searching.',
+    problem:
+      'Manual prospecting is slow and inconsistent, and generic outreach gets ignored, leaving your pipeline unpredictable and your sales team chasing the wrong accounts.',
+    details: [
+      'Ideal customer profile and target account research',
+      'Automated prospecting across multiple data sources',
+      'AI-personalised outreach sequences at scale',
+      'Lead scoring and qualification before handoff to sales',
+      'Ongoing pipeline reporting and campaign optimisation',
+    ],
     outcomes: [
       'Ideal customer profiling',
       'Automated prospecting',
@@ -71,29 +179,194 @@ export const services = [
   {
     id: 'ai-agents',
     icon: 'Bot',
+    category: 'ai-automation',
     title: 'Custom AI Agents',
     short: 'Purpose-built agents that execute real work, not just chat.',
     description:
-      'We design and deploy autonomous AI agents tailored to your business logic — handling research, data entry, decision-making, and multi-step tasks that used to require a human in the loop.',
+      'We design and deploy autonomous AI agents tailored to your business logic: handling research, data entry, decision-making, and multi-step tasks that used to require a human in the loop.',
+    problem:
+      'Off-the-shelf AI tools handle simple prompts but fall short on real, multi-step business processes that require judgment, context, and reliable execution.',
+    details: [
+      'Agent architecture mapped to your specific workflows',
+      'Integration with internal tools, APIs, and data sources',
+      'Multi-step reasoning and decision logic, not just single replies',
+      'Guardrails and human-in-the-loop checkpoints where it matters',
+      'Continuous monitoring and agent performance tuning',
+    ],
     outcomes: ['Task-specific agent design', 'Multi-step reasoning', 'Tool & API integration', 'Human-in-the-loop controls'],
   },
   {
     id: 'crm-sales',
     icon: 'Users',
+    category: 'ai-automation',
     title: 'CRM & Sales Automation',
     short: 'A sales engine that follows up so nothing falls through.',
     description:
-      'We automate your CRM from first touch to closed deal — syncing leads, triggering follow-ups, and giving your sales team a single source of truth instead of scattered spreadsheets.',
+      'We automate your CRM from first touch to closed deal, syncing leads, triggering follow-ups, and giving your sales team a single source of truth instead of scattered spreadsheets.',
+    problem:
+      'Leads fall through the cracks when follow-up depends on memory, and disconnected tools mean your sales data never tells the full story.',
+    details: [
+      'CRM setup, migration, and pipeline structure design',
+      'Automated lead routing and follow-up sequences',
+      'Integration between CRM, email, calendar, and comms tools',
+      'Deal-stage triggers and task automation for reps',
+      'Live sales dashboards and forecasting reports',
+    ],
     outcomes: ['CRM setup & cleanup', 'Automated follow-ups', 'Deal pipeline automation', 'Sales reporting dashboards'],
   },
   {
     id: 'workshops',
     icon: 'GraduationCap',
+    category: 'ai-automation',
     title: 'AI Workshops',
     short: 'Get your team fluent in AI, fast.',
     description:
-      'We run hands-on workshops that teach your team how to actually use AI in their day-to-day work — from prompting and tooling to spotting the next automation opportunity themselves.',
+      'We run hands-on workshops that teach your team how to actually use AI in their day-to-day work: from prompting and tooling to spotting the next automation opportunity themselves.',
+    problem:
+      'Most teams have access to AI tools but no real training, so adoption stalls, usage stays surface-level, and the ROI never materialises.',
+    details: [
+      "Live, hands-on workshops tailored to your team's roles and tools",
+      'Practical exercises using your real workflows and data',
+      'Custom AI usage playbooks your team keeps after the session',
+      'Prompting, tooling, and workflow-design best practices',
+      'Follow-up office hours to reinforce adoption',
+    ],
     outcomes: ['Team training sessions', 'Hands-on AI tooling', 'Custom playbooks', 'Ongoing support access'],
+  },
+  {
+    id: 'software',
+    icon: 'Boxes',
+    category: 'software-digital',
+    title: 'Custom Software & Platforms',
+    short: 'Build software around the way your business actually works.',
+    description:
+      'We design and build custom software, internal tools, and business applications tailored to how your team actually operates, not how a generic SaaS template assumes you operate. From first architecture decision to production deployment.',
+    problem:
+      'Off-the-shelf software forces your team to adapt to its workflow instead of the other way around, and by the time you have bolted on enough workarounds, you are paying for a tool that barely fits.',
+    details: [
+      'Custom business applications and internal tools built around your actual processes',
+      'SaaS platform design and development from architecture to launch',
+      'API design and development for internal and external use',
+      'Database-backed applications built on a schema that matches your business logic',
+      'Legacy system modernisation and migration to a maintainable stack',
+    ],
+    outcomes: ['Custom business applications', 'API development', 'Database architecture', 'Legacy modernisation'],
+  },
+  {
+    id: 'ecommerce',
+    icon: 'ShoppingBag',
+    category: 'software-digital',
+    title: 'E-commerce & Digital Commerce',
+    short: 'Build digital commerce experiences designed to sell and scale.',
+    description:
+      'We build and optimise e-commerce platforms, from custom storefronts to Shopify builds, engineered around conversion, not just aesthetics. Every integration, from payments to inventory, is wired to keep orders moving without manual intervention.',
+    problem:
+      'A store that looks good but checks out poorly, syncs inventory by hand, or cannot talk to your other systems costs you sales every day it stays that way.',
+    details: [
+      'Custom e-commerce platforms and Shopify development',
+      'Payment gateway integration and checkout optimisation',
+      'Inventory and order management system integration',
+      'Automated order workflows from purchase to fulfilment',
+      'Conversion-focused customer experience design',
+    ],
+    outcomes: ['Custom commerce builds', 'Payment integrations', 'Order automation', 'Conversion optimisation'],
+  },
+  {
+    id: 'cloud',
+    icon: 'Cloud',
+    category: 'infrastructure-data',
+    title: 'Cloud & DevOps',
+    short: 'Build the infrastructure your digital systems need to scale.',
+    description:
+      'We design cloud architecture, manage migrations, and build the CI/CD pipelines and monitoring that keep your systems reliable as usage grows. Infrastructure that scales with you instead of becoming the thing that breaks first.',
+    problem:
+      'Systems that were fine at low volume start failing under real usage, and without proper infrastructure and monitoring in place, you find out about it from your customers instead of your dashboards.',
+    details: [
+      'Cloud architecture design across AWS, GCP, and Azure',
+      'Cloud migration from on-premise or legacy hosting',
+      'CI/CD pipeline setup for reliable, repeatable deployments',
+      'Infrastructure automation and infrastructure-as-code',
+      'Application monitoring, alerting, and cost optimisation',
+    ],
+    outcomes: ['Cloud architecture', 'CI/CD pipelines', 'Infrastructure automation', 'Monitoring & optimisation'],
+  },
+  {
+    id: 'data',
+    icon: 'Database',
+    category: 'infrastructure-data',
+    title: 'Data Engineering & Analytics',
+    short: 'Turn disconnected business data into infrastructure you can build on.',
+    description:
+      'We design data pipelines, warehouses, and reporting systems that turn scattered data across your tools into a single, reliable source of truth, the same foundation your future AI systems will need to actually work.',
+    problem:
+      'Data spread across a dozen tools with no pipeline connecting them means every report is a manual export, and any AI or automation you build on top of it inherits the same mess.',
+    details: [
+      'Data pipeline design and integration across your existing tools',
+      'Data warehouse architecture built for how your team actually queries it',
+      'Business intelligence dashboards and reporting systems',
+      'Database architecture and schema design',
+      'AI-ready data infrastructure for future automation and analytics',
+    ],
+    outcomes: ['Data pipelines', 'Data warehousing', 'BI dashboards', 'AI-ready infrastructure'],
+  },
+  {
+    id: 'integration',
+    icon: 'Plug',
+    category: 'software-digital',
+    title: 'IT Integration & Digital Systems',
+    short: 'Connect the systems your business already depends on.',
+    description:
+      'We connect your CRM, ERP, e-commerce, payment, and internal tools so they operate as one system instead of a dozen disconnected ones, each requiring someone to manually move data between them.',
+    problem:
+      'Every tool your business runs on holds a piece of the picture, and when none of them talk to each other, someone on your team becomes the integration layer, copying data by hand and hoping nothing falls out of sync.',
+    details: [
+      'API integration between CRM, ERP, and internal systems',
+      'E-commerce and payment platform integration',
+      'Cross-platform workflow synchronisation',
+      'Legacy system integration with modern tools',
+      'Ongoing monitoring to catch sync failures before they cost you data',
+    ],
+    outcomes: ['API integrations', 'System synchronisation', 'Cross-platform workflows', 'Legacy connectivity'],
+  },
+  {
+    id: 'truck-dispatching',
+    icon: 'Truck',
+    category: 'logistics',
+    title: 'Truck Dispatching',
+    short: 'Experienced freight dispatch support built for owner-operators and small fleets who want to earn more and stress less.',
+    description:
+      'With over 10 years in the industry and 200+ carriers served, we handle dispatching, brokerage, authority support, and factoring connections so you can stay focused on driving. We work on an 8% commission basis, so you only pay when you earn: no upfront cost, no flat fees.',
+    problem:
+      'Every hour spent hunting load boards, chasing broker callbacks, or waiting unpaid on Net-30 is money you are not making on the road.',
+    details: [
+      'Freight dispatching: sourcing and booking loads, negotiating rates, and managing broker and shipper communication',
+      'Freight brokerage: connecting carriers directly with vetted freight opportunities through our broker network',
+      'MC authority setup and support: helping carriers get authority in place and stay compliant',
+      'Factoring services: connecting carriers with fast-pay factoring solutions instead of waiting on Net-30',
+      'Rate and lane optimization: maximizing dollars-per-mile through smart lane selection and negotiation',
+      'Backhaul and overhaul planning: minimizing empty miles with advance reload planning',
+      'Detention prevention: proactive scheduling and communication to cut wait times and protect earnings',
+      "Broker vetting: screening every broker's authority, bond status, credit score, and payment history before booking",
+    ],
+    outcomes: [
+      '10+ years of experience',
+      '200+ carriers served',
+      '8% commission, paid only when you earn',
+      'Less deadhead, more earnings',
+    ],
+  },
+]
+
+// Covison's own products, distinct from client services. Each gets a
+// dedicated page at /products/<id> with its own rich content, not the
+// service-detail template.
+export const products = [
+  {
+    id: 'crm',
+    icon: 'Users',
+    title: 'Covison CRM',
+    tagline: 'Your sales pipeline, finally working as one.',
+    short: 'Manage leads, relationships, follow-ups, and sales workflows from one unified workspace.',
   },
 ]
 
@@ -291,46 +564,33 @@ export const processSteps = [
     number: '04',
     title: 'Scale',
     description:
-      'We monitor, iterate, and extend your systems as your business evolves — continuously improving ROI.',
+      'We monitor, iterate, and extend your systems as your business evolves, continuously improving ROI.',
   },
 ]
 
 export const stats = [
-  { value: '10+', label: 'Businesses transformed' },
-  { value: '500+', label: 'Hours saved per client monthly' },
-  { value: '98%', label: 'Client satisfaction rate' },
-  { value: '4×', label: 'Average ROI in first 90 days' },
+  { value: '14', label: 'Focused service lines' },
+  { value: '21', label: 'Industries served' },
+  { value: '4', label: 'Step delivery process' },
+  { value: '3', label: 'Partners, no hand-offs' },
 ]
 
-export const testimonials = [
-  {
-    quote:
-      'Covison automated our entire onboarding workflow. What used to take our team 3 hours now runs in minutes, flawlessly. The ROI was visible within two weeks.',
-    name: 'Sarah K.',
-    role: 'Operations Director',
-    company: 'CloudBase Systems',
-  },
-  {
-    quote:
-      'The website they built converted 2× better than our previous one in the first month alone. Clear ROI from day one, with a design that finally matches our brand ambitions.',
-    name: 'Marcus D.',
-    role: 'Founder & CEO',
-    company: 'Vantage Analytics',
-  },
-  {
-    quote:
-      "Their AI strategy work was an eye-opener. We found six automation opportunities we'd never considered — and Covison built three of them within the same engagement.",
-    name: 'Priya N.',
-    role: 'Head of Growth',
-    company: 'Lumio Health',
-  },
-]
+export interface Testimonial {
+  quote: string
+  name: string
+  role: string
+  company: string
+}
+
+// No client testimonials yet; Testimonials renders a placeholder state until
+// clients agree to be quoted. Do not fabricate quotes, names or companies here.
+export const testimonials: Testimonial[] = []
 
 export const faq = [
   {
     question: 'What types of businesses do you work with?',
     answer:
-      'We work with B2B companies across industries — from startups to established enterprises — that want to leverage AI to grow faster, operate leaner, and deliver better client experiences.',
+      'We work with B2B companies across industries, from startups to established enterprises, that want to leverage AI to grow faster, operate leaner, and deliver better client experiences.',
   },
   {
     question: 'How long does a typical project take?',
@@ -350,113 +610,131 @@ export const faq = [
   {
     question: 'Can you work with our existing tools and platforms?',
     answer:
-      'Absolutely. We integrate with your existing stack — CRM, ERP, communication tools, databases — and build around what you already use wherever possible.',
+      'Absolutely. We integrate with your existing stack: CRM, ERP, communication tools, databases, and build around what you already use wherever possible.',
   },
 ]
 
-export const caseStudies = [
+export const team = [
   {
-    tag: 'Workflow Automation',
-    client: 'E-commerce Brand',
-    title: 'Automated Order Processing & Fulfilment',
-    result: '87% reduction in manual processing time',
-    description:
-      'Built an end-to-end AI pipeline that reads incoming orders, triggers warehouse logic, syncs inventory, and sends customer updates — all without human intervention.',
-    metrics: [
-      { value: '87%', label: 'Less manual work' },
-      { value: '3 hrs', label: 'Saved daily' },
-      { value: '0', label: 'Processing errors' },
+    name: 'Abdullah Imran',
+    role: 'Co-Founder, Strategy & Client Delivery',
+    linkedin: '',
+    bio: [
+      "Abdullah runs point on strategy and delivery, making sure every engagement starts with a clear problem and ends with a measurable result, before a single automation gets built.",
+      'He owns the client relationship from first call to final handoff, keeping projects scoped, on schedule, and tied to outcomes the client can point to.',
     ],
   },
   {
-    tag: 'Website Development',
-    client: 'B2B SaaS Company',
-    title: 'Full Brand & Website Relaunch',
-    result: '2.4× increase in demo requests',
-    description:
-      'Redesigned and rebuilt their marketing site from the ground up — new brand identity, conversion-focused copy, and a polished Next.js build that loads in under 1 second.',
-    metrics: [
-      { value: '2.4×', label: 'More demo requests' },
-      { value: '<1s', label: 'Page load time' },
-      { value: '94', label: 'Lighthouse score' },
+    name: 'Saad Rabbani',
+    role: 'Co-Founder, AI Automation & Web Development',
+    linkedin: '',
+    bio: [
+      "Saad leads Covison's technical build: from AI agents and workflow automations to the websites and applications that put them in front of clients. He thinks in systems, not one-off scripts, so what he ships keeps running long after the handoff.",
+      "He sets the technical direction for every engagement, turning a client's operational bottlenecks into automations and interfaces that hold up under real usage, not just demos.",
     ],
   },
   {
-    tag: 'AI Chatbot',
-    client: 'Professional Services Firm',
-    title: 'AI Client Assistant Deployment',
-    result: '340+ hours saved per month',
-    description:
-      'Deployed a custom AI assistant trained on their internal knowledge base to handle tier-1 client inquiries, freeing their team for high-value advisory work.',
-    metrics: [
-      { value: '340+', label: 'Hours saved/month' },
-      { value: '24/7', label: 'Availability' },
-      { value: '91%', label: 'Resolution rate' },
+    name: 'Muhammad Ali Murtaza',
+    role: 'Co-Founder, Growth & Operations',
+    linkedin: '',
+    bio: [
+      'Ali handles the operational and growth side of Covison, from partnerships to day-to-day business operations, so engagements move smoothly without adding overhead to the client relationship.',
+      'He works alongside Saad and Abdullah to keep new business, vendor relationships, and internal operations organized, so the whole team can stay focused on delivery.',
     ],
   },
+]
+
+// Maps each service id to the tag of its matching case study (see lib/case-studies.ts),
+// used to cross-link service pages <-> case study pages without fuzzy string matching.
+export const serviceCaseStudyMap: Record<string, string> = {
+  consulting: 'Data Modernization',
+  automation: 'AI Copilot',
+  web: 'Marketplace MVP',
+  chatbots: 'AI Voice & Receptionist',
+  'lead-generation': 'Lead Qualification',
+  'ai-agents': 'Data Intelligence',
+  'crm-sales': 'CRM & Sales Automation',
+  // No workshop-style engagement among current case studies; that service page
+  // simply renders without a "related work" section until one exists.
+}
+
+export interface InsightPost {
+  slug: string
+  title: string
+  category: string
+  date: string
+  excerpt: string
+  author: string
+  readingTime?: string
+  /** Set when a post is also featured on a product page (e.g. 'crm' surfaces it on /products/crm). */
+  relatedProduct?: string
+}
+
+export const posts: InsightPost[] = [
   {
-    tag: 'AI Consulting & Strategy',
-    client: 'Manufacturing Company',
-    title: 'AI Readiness Audit & Automation Roadmap',
-    result: '$180K in projected annual savings identified',
-    description:
-      'Audited operations across three departments, mapped every manual process to an automation opportunity, and delivered a phased roadmap leadership could act on immediately.',
-    metrics: [
-      { value: '12', label: 'Opportunities identified' },
-      { value: '$180K', label: 'Projected annual savings' },
-      { value: '6 wks', label: 'Audit to roadmap' },
-    ],
+    slug: 'why-modern-businesses-are-moving-beyond-traditional-crms',
+    title: 'Why modern businesses are moving beyond traditional CRMs',
+    category: 'Sales Ops',
+    date: 'September 2026',
+    excerpt:
+      'Traditional CRMs were built to store contact records. Modern sales teams need something that actively works the pipeline with them, not just logs what already happened.',
+    author: 'Covison Team',
+    readingTime: '4 min read',
+    relatedProduct: 'crm',
   },
   {
-    tag: 'AI Lead Generation',
-    client: 'B2B Marketing Agency',
-    title: 'Outbound Prospecting System Overhaul',
-    result: '3.1x more qualified meetings booked',
-    description:
-      'Replaced manual list-building and generic outreach with an AI-driven prospecting engine that identifies, enriches, and personalises outreach to ideal-fit accounts at scale.',
-    metrics: [
-      { value: '3.1x', label: 'Qualified meetings' },
-      { value: '68%', label: 'Reply rate lift' },
-      { value: '40 hrs', label: 'Saved per month' },
-    ],
+    slug: 'how-automated-follow-ups-prevent-leads-from-slipping-through-the-cracks',
+    title: 'How automated follow-ups prevent leads from slipping through the cracks',
+    category: 'Automation',
+    date: 'September 2026',
+    excerpt:
+      "Most lost deals are not lost to a competitor, they are lost to silence. Automated follow-up sequences close the gap between interest and action.",
+    author: 'Covison Team',
+    readingTime: '3 min read',
+    relatedProduct: 'crm',
   },
   {
-    tag: 'Custom AI Agents',
-    client: 'Logistics Company',
-    title: 'Autonomous Shipment Tracking Agent',
-    result: '95% of exceptions resolved without a human',
-    description:
-      'Built a custom agent that monitors shipments across carriers, flags exceptions, and resolves them automatically via carrier APIs — only escalating the cases that truly need a person.',
-    metrics: [
-      { value: '95%', label: 'Exceptions auto-resolved' },
-      { value: '4.5x', label: 'Faster response time' },
-      { value: '0', label: 'Added headcount' },
-    ],
+    slug: 'from-scattered-leads-to-one-intelligent-sales-pipeline',
+    title: 'From scattered leads to one intelligent sales pipeline',
+    category: 'Product',
+    date: 'August 2026',
+    excerpt:
+      'When leads live across inboxes, spreadsheets, and sticky notes, nobody has the full picture. Consolidating them into one pipeline changes how a sales team actually operates.',
+    author: 'Covison Team',
+    readingTime: '5 min read',
+    relatedProduct: 'crm',
   },
   {
-    tag: 'CRM & Sales Automation',
-    client: 'Financial Services Firm',
-    title: 'End-to-End CRM Rebuild & Follow-Up Automation',
-    result: '52% faster average deal cycle',
-    description:
-      'Rebuilt their CRM pipeline from the ground up, connected it to email and calendar, and automated every follow-up touchpoint so no lead waited on a rep to remember them.',
-    metrics: [
-      { value: '52%', label: 'Faster deal cycle' },
-      { value: '0', label: 'Leads gone cold' },
-      { value: '3x', label: 'Rep capacity' },
-    ],
+    slug: 'why-your-crm-should-work-around-your-business',
+    title: 'Why your CRM should work around your business, not the other way around',
+    category: 'Product',
+    date: 'August 2026',
+    excerpt:
+      'Most teams end up adapting their process to fit their software. It should be the other way around.',
+    author: 'Covison Team',
+    readingTime: '4 min read',
+    relatedProduct: 'crm',
   },
   {
-    tag: 'AI Workshops',
-    client: 'Regional Real Estate Team',
-    title: 'Team-Wide AI Adoption Workshop Series',
-    result: '80% of staff using AI tools daily within 30 days',
-    description:
-      'Ran a hands-on workshop series covering prompting, tooling, and workflow design tailored to their day-to-day work, followed by office hours to lock in adoption.',
-    metrics: [
-      { value: '80%', label: 'Daily AI tool usage' },
-      { value: '4', label: 'Workshops delivered' },
-      { value: '30 days', label: 'To full adoption' },
-    ],
+    slug: 'how-ai-is-changing-the-modern-sales-workflow',
+    title: 'How AI is changing the modern sales workflow',
+    category: 'AI',
+    date: 'August 2026',
+    excerpt:
+      "AI's role in sales is shifting from writing better cold emails to actively managing the busywork that happens between conversations.",
+    author: 'Covison Team',
+    readingTime: '5 min read',
+    relatedProduct: 'crm',
+  },
+  {
+    slug: 'building-a-sales-system-that-never-forgets-a-follow-up',
+    title: 'Building a sales system that never forgets a follow-up',
+    category: 'Sales Ops',
+    date: 'July 2026',
+    excerpt:
+      'A sales system is only as reliable as its memory. The best pipelines make forgetting structurally impossible.',
+    author: 'Covison Team',
+    readingTime: '3 min read',
+    relatedProduct: 'crm',
   },
 ]

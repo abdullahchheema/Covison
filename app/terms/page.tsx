@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { LegalPage } from '@/components/ui/LegalPage'
+import { affiliate } from '@/lib/site'
 
-export const metadata: Metadata = { title: 'Terms of Service' }
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  alternates: { canonical: '/terms' },
+}
 
 export default function TermsPage() {
   return (
@@ -9,6 +13,12 @@ export default function TermsPage() {
       <p>
         By accessing our website or engaging our services, you agree to these terms. Please read
         them carefully.
+      </p>
+      <h2>Company information</h2>
+      <p>
+        Covison is affiliated with {affiliate.name}, a company registered in {affiliate.country}{' '}
+        under company number {affiliate.companyNumber}, with a registered address at{' '}
+        {affiliate.address}.
       </p>
       <h2>Services</h2>
       <p>

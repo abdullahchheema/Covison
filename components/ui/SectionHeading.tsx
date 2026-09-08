@@ -19,10 +19,15 @@ export function SectionHeading({
   const centered = align === 'center'
   return (
     <div className={cn('flex flex-col gap-4', centered && 'items-center text-center', className)}>
-      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">{title}</h2>
+      {eyebrow && <span className="eyebrow text-brand">{eyebrow}</span>}
+      <h2 className="text-h2 md:text-h1">{title}</h2>
       {description && (
-        <p className={cn('text-lg leading-relaxed text-muted', centered ? 'max-w-2xl' : 'max-w-xl')}>
+        <p
+          className={cn(
+            'text-body-lg text-text-2',
+            centered ? 'max-w-2xl' : 'max-w-[48ch]',
+          )}
+        >
           {description}
         </p>
       )}
