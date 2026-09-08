@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, MessageCircle } from 'lucide-react'
+import { Mail, MessageCircle, Phone } from 'lucide-react'
 import { LinkedInIcon } from '@/components/ui/LinkedInIcon'
 import { services, footerNav, siteConfig, affiliate } from '@/lib/site'
 import { Container } from '@/components/ui/Container'
@@ -55,6 +55,13 @@ export function Footer() {
                 {siteConfig.email}
               </a>
               <a
+                href={`tel:${affiliate.phone.replace(/\s+/g, '')}`}
+                className="inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-brand-violet"
+              >
+                <Phone size={15} />
+                {affiliate.phone}
+              </a>
+              <a
                 href={`https://wa.me/${siteConfig.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -63,6 +70,15 @@ export function Footer() {
                 <MessageCircle size={15} />
                 WhatsApp
               </a>
+            </div>
+
+            <div className="flex flex-col gap-1 border-t border-white/10 pt-5">
+              <p className="eyebrow text-white/40">Registered office</p>
+              <p className="text-sm text-white/70">{affiliate.name}</p>
+              <p className="text-sm leading-relaxed text-white/50">
+                {affiliate.address}, {affiliate.country}
+              </p>
+              <p className="text-sm text-white/50">Company No. {affiliate.companyNumber}</p>
             </div>
           </div>
 
@@ -89,10 +105,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-2 border-t border-white/10 pt-8 text-center">
-          <p className="eyebrow eyebrow-invert">© {year} Covison. All rights reserved.</p>
-          <p className="max-w-md text-xs text-white/50">
-            Covison is affiliated with {affiliate.name}, registered in {affiliate.country} (company
-            no. {affiliate.companyNumber}), {affiliate.address}.
+          <p className="eyebrow eyebrow-invert">
+            © {year} Covison, a trading name of {affiliate.name}. All rights reserved.
           </p>
         </div>
       </Container>

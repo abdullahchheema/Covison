@@ -5,10 +5,14 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { cn } from '@/lib/cn'
 
-// Drop the brand mark at public/logo.png; falls back to the "C" badge until it exists.
-// The mark is a white monochrome asset: on the light theme it's CSS-inverted to render
-// dark, in dark mode it's already correct, and on the always-dark footer/ink plate it
-// renders unfiltered regardless of theme.
+// Two source assets:
+// - /logo-mark.png: icon-only mark, transparent background, reads correctly
+//   on any surface (light canvas, dark canvas, or the permanently-dark ink
+//   plate).
+// - /logo-full.jpg: full lockup with the "Covison" wordmark baked in, on a
+//   flat white background. Only safe on a light surface: in dark mode, or
+//   on the always-dark ink plate, it falls back to the mark plus live text
+//   instead of showing a white box.
 export function Logo({
   href = '/',
   size = 'nav',
@@ -19,38 +23,67 @@ export function Logo({
   /** Render on the permanently-dark `--ink` surface (footer, BrandPlate) rather than the theme-aware canvas. */
   onInk?: boolean
 }) {
-  const [failed, setFailed] = useState(false)
-  const badgeSize = size === 'nav' ? 'h-10 w-10' : 'h-11 w-11'
+  const [markFailed, setMarkFailed] = useState(false)
+  const [fullFailed, setFullFailed] = useState(false)
+  const badgeSize = size === 'nav' ? 'h-9 w-9' : 'h-11 w-11'
+
+  const fallbackBadge = (
+    <span
+      className={cn(
+        'flex flex-shrink-0 items-center justify-center rounded-md text-sm font-semibold',
+        onInk ? 'bg-white text-ink' : 'bg-foreground text-background',
+        badgeSize,
+      )}
+    >
+      C
+    </span>
+  )
+
+  const mark = markFailed ? (
+    fallbackBadge
+  ) : (
+    <Image
+      src="/logo-mark.png"
+      alt="Covison"
+      width={size === 'nav' ? 36 : 44}
+      height={size === 'nav' ? 36 : 44}
+      unoptimized
+      className={cn('flex-shrink-0 object-contain', badgeSize)}
+      onError={() => setMarkFailed(true)}
+    />
+  )
+
+  const markWithText = (
+    <span className={cn('flex items-center', size === 'nav' && 'gap-2.5')}>
+      {mark}
+      {size === 'nav' && (
+        <span className={cn('text-lg font-semibold tracking-tight', onInk ? 'text-white' : 'text-foreground')}>
+          covison
+        </span>
+      )}
+    </span>
+  )
 
   return (
-    <Link
-      href={href}
-      aria-label="Covison home"
-      className={cn('flex items-center', size === 'nav' && 'gap-2.5')}
-    >
-      {failed ? (
-        <span
-          className={cn(
-            'flex items-center justify-center rounded-md text-sm font-semibold',
-            onInk ? 'bg-white text-ink' : 'bg-foreground text-background',
-            badgeSize,
-          )}
-        >
-          C
-        </span>
+    <Link href={href} aria-label="Covison home" className="flex items-center">
+      {onInk ? (
+        markWithText
+      ) : fullFailed ? (
+        markWithText
       ) : (
-        <Image
-          src="/logo.png"
-          alt="Covison"
-          width={size === 'nav' ? 40 : 44}
-          height={size === 'nav' ? 40 : 44}
-          unoptimized
-          className={cn('object-contain', badgeSize, !onInk && 'invert dark:invert-0')}
-          onError={() => setFailed(true)}
-        />
-      )}
-      {size === 'nav' && (
-        <span className="text-lg font-semibold tracking-tight text-foreground">covison</span>
+        <>
+          <Image
+            src="/logo-full.jpg"
+            alt="Covison"
+            width={136}
+            height={36}
+            unoptimized
+            priority={size === 'nav'}
+            className="block h-9 w-auto object-contain dark:hidden"
+            onError={() => setFullFailed(true)}
+          />
+          <span className="hidden dark:block">{markWithText}</span>
+        </>
       )}
     </Link>
   )

@@ -11,13 +11,15 @@ export const siteConfig = {
   linkedin: '',
 }
 
-// Covison is affiliated with this UK-registered company. Referenced in the
-// footer, About page, and legal pages.
+// Covison is affiliated with this UK-registered company, and operates from
+// its registered address. Referenced in the footer, About page, and legal
+// pages.
 export const affiliate = {
   name: 'Prime Galleria Ltd',
   companyNumber: '16604562',
   address: '29 Spring Street, Accrington, BBE0HE',
   country: 'United Kingdom',
+  phone: '+44 7417 579231',
 }
 
 export const navigation = [
