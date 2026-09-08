@@ -15,15 +15,20 @@ import { cn } from '@/lib/cn'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
   const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
   const prefersReducedMotion = useReducedMotion()
+  const menuTransition = { duration: 0.18, ease: [0.16, 1, 0.3, 1] as const }
 
   const [lastPathname, setLastPathname] = useState(pathname)
   if (pathname !== lastPathname) {
     setLastPathname(pathname)
     setOpen(false)
+    setServicesOpen(false)
+    setProductsOpen(false)
   }
 
   useEffect(() => {
@@ -64,6 +69,7 @@ export function Navbar() {
   }, [open])
 
   return (
+    <>
     <header className="sticky top-0 z-40 h-16 border-b border-line-soft bg-bg/80 backdrop-blur-sm md:h-20">
       <Container>
         <nav className="flex h-16 items-center justify-between md:h-20">
@@ -75,8 +81,19 @@ export function Navbar() {
               const isServices = item.href === '/services'
               const isProducts = item.href === '/products'
               const hasMenu = isServices || isProducts
+              const menuOpen = isServices ? servicesOpen : isProducts ? productsOpen : false
+              const setMenuOpen = isServices ? setServicesOpen : isProducts ? setProductsOpen : undefined
               return (
-                <li key={item.href} className={cn(hasMenu && 'group relative')}>
+                <li
+                  key={item.href}
+                  className={cn(hasMenu && 'group relative')}
+                  onMouseEnter={() => setMenuOpen?.(true)}
+                  onMouseLeave={() => setMenuOpen?.(false)}
+                  onFocus={() => setMenuOpen?.(true)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) setMenuOpen?.(false)
+                  }}
+                >
                   <Link
                     href={item.href}
                     className={cn(
@@ -88,7 +105,7 @@ export function Navbar() {
                     {hasMenu && (
                       <ChevronDown
                         size={14}
-                        className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                        className={cn('transition-transform duration-200', menuOpen && 'rotate-180')}
                         aria-hidden
                       />
                     )}
@@ -98,94 +115,117 @@ export function Navbar() {
                   </Link>
 
                   {isServices && (
-                    <div className="invisible absolute left-0 top-full w-[min(36rem,calc(100vw-3rem))] pt-3 lg:w-[min(64rem,calc(100vw-3rem))] opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="rounded-2xl bg-surface p-8 shadow-xl">
-                        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[200px_1fr]">
-                          <div className="flex flex-col gap-4">
-                            <Link
-                              href="/services"
-                              className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-brand"
-                            >
-                              View all services
-                              <ArrowRight size={14} />
-                            </Link>
-                            <p className="text-sm leading-relaxed text-text-2">
-                              {siteConfig.description}
-                            </p>
-                            <div className="mt-2 hidden lg:block">
-                              <Button href="/contact" size="sm">
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
+                          transition={menuTransition}
+                          className="absolute left-0 top-full w-[min(36rem,calc(100vw-3rem))] pt-3 lg:w-[min(64rem,calc(100vw-3rem))]"
+                        >
+                          <div className="rounded-2xl bg-surface p-8 shadow-xl">
+                            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[200px_1fr]">
+                              <div className="flex flex-col gap-4">
+                                <Link
+                                  href="/services"
+                                  onClick={() => setServicesOpen(false)}
+                                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground transition-colors hover:text-brand"
+                                >
+                                  View all services
+                                  <ArrowRight size={14} />
+                                </Link>
+                                <p className="text-sm leading-relaxed text-text-2">
+                                  {siteConfig.description}
+                                </p>
+                                <div className="mt-2 hidden lg:block">
+                                  <Button href="/contact" size="sm" onClick={() => setServicesOpen(false)}>
+                                    Start a project
+                                    <ArrowRight size={14} />
+                                  </Button>
+                                </div>
+                              </div>
+
+                              <div className="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
+                                {serviceCategories.map((category) => (
+                                  <div key={category.id} className="flex flex-col gap-3">
+                                    <p className="eyebrow text-text-3">{category.label}</p>
+                                    <ul className="flex flex-col gap-1">
+                                      {services
+                                        .filter((s) => s.category === category.id)
+                                        .map((service) => {
+                                          const Icon = getServiceIcon(service.icon)
+                                          return (
+                                            <li key={service.id}>
+                                              <Link
+                                                href={`/services/${service.id}`}
+                                                onClick={() => setServicesOpen(false)}
+                                                className="-mx-2 flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-text-2 transition-colors hover:bg-surface-2 hover:text-foreground"
+                                              >
+                                                <Icon size={14} className="flex-shrink-0 text-brand" aria-hidden />
+                                                <span>{service.title}</span>
+                                              </Link>
+                                            </li>
+                                          )
+                                        })}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="mt-8 border-t border-line-soft pt-6 lg:hidden">
+                              <Button href="/contact" size="sm" onClick={() => setServicesOpen(false)}>
                                 Start a project
                                 <ArrowRight size={14} />
                               </Button>
                             </div>
                           </div>
-
-                          <div className="grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-4">
-                            {serviceCategories.map((category) => (
-                              <div key={category.id} className="flex flex-col gap-3">
-                                <p className="eyebrow text-text-3">{category.label}</p>
-                                <ul className="flex flex-col gap-1">
-                                  {services
-                                    .filter((s) => s.category === category.id)
-                                    .map((service) => {
-                                      const Icon = getServiceIcon(service.icon)
-                                      return (
-                                        <li key={service.id}>
-                                          <Link
-                                            href={`/services/${service.id}`}
-                                            className="-mx-2 flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-text-2 transition-colors hover:bg-surface-2 hover:text-foreground"
-                                          >
-                                            <Icon size={14} className="flex-shrink-0 text-brand" aria-hidden />
-                                            <span>{service.title}</span>
-                                          </Link>
-                                        </li>
-                                      )
-                                    })}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="mt-8 border-t border-line-soft pt-6 lg:hidden">
-                          <Button href="/contact" size="sm">
-                            Start a project
-                            <ArrowRight size={14} />
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
 
                   {isProducts && (
-                    <div className="invisible absolute left-0 top-full w-[min(22rem,calc(100vw-3rem))] pt-3 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="rounded-2xl bg-surface p-6 shadow-xl">
-                        <div className="flex flex-col gap-1">
-                          {products.map((product) => {
-                            const Icon = getServiceIcon(product.icon)
-                            return (
-                              <Link
-                                key={product.id}
-                                href={`/products/${product.id}`}
-                                className="-m-2 flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-surface-2"
-                              >
-                                <Icon size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
-                                <span className="flex flex-col gap-0.5">
-                                  <span className="text-sm font-semibold text-foreground">{product.title}</span>
-                                  <span className="text-xs leading-relaxed text-text-2">{product.short}</span>
-                                </span>
-                              </Link>
-                            )
-                          })}
-                        </div>
-                        <div className="mt-6 border-t border-line-soft pt-5">
-                          <Button href="/products" variant="link">
-                            View all products
-                            <ArrowRight size={14} />
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
+                    <AnimatePresence>
+                      {productsOpen && (
+                        <motion.div
+                          initial={prefersReducedMotion ? false : { opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
+                          transition={menuTransition}
+                          className="absolute left-0 top-full w-[min(22rem,calc(100vw-3rem))] pt-3"
+                        >
+                          <div className="rounded-2xl bg-surface p-6 shadow-xl">
+                            <div className="flex flex-col gap-1">
+                              {products.map((product) => {
+                                const Icon = getServiceIcon(product.icon)
+                                return (
+                                  <Link
+                                    key={product.id}
+                                    href={`/products/${product.id}`}
+                                    onClick={() => setProductsOpen(false)}
+                                    className="-m-2 flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-surface-2"
+                                  >
+                                    <Icon size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
+                                    <span className="flex flex-col gap-0.5">
+                                      <span className="text-sm font-semibold text-foreground">{product.title}</span>
+                                      <span className="text-xs leading-relaxed text-text-2">{product.short}</span>
+                                    </span>
+                                  </Link>
+                                )
+                              })}
+                            </div>
+                            <div className="mt-6 border-t border-line-soft pt-5">
+                              <Button href="/products" variant="link" onClick={() => setProductsOpen(false)}>
+                                View all products
+                                <ArrowRight size={14} />
+                              </Button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                 </li>
               )
@@ -215,7 +255,12 @@ export function Navbar() {
           </div>
         </nav>
       </Container>
+    </header>
 
+      {/* Rendered as a sibling of <header>, not inside it: the header's
+          backdrop-blur establishes a CSS containing block for `position:
+          fixed` descendants, which would collapse this drawer to the
+          header's own height instead of the full viewport. */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -261,6 +306,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

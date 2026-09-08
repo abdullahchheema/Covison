@@ -72,11 +72,18 @@ export function Button({
 
   if (href) {
     return external ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} aria-label={ariaLabel}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+        aria-label={ariaLabel}
+        onClick={onClick}
+      >
         {children}
       </a>
     ) : (
-      <Link href={href} className={classes} aria-label={ariaLabel}>
+      <Link href={href} className={classes} aria-label={ariaLabel} onClick={onClick}>
         {children}
       </Link>
     )
