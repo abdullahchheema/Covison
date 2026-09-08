@@ -20,8 +20,14 @@ export function Navbar() {
   const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
   const prefersReducedMotion = useReducedMotion()
   const menuTransition = { duration: 0.18, ease: [0.16, 1, 0.3, 1] as const }
+  // Matches the sticky header's actual bottom edge, not just the navbar's own
+  // height: the AnnouncementBar sits above it and hasn't scrolled away yet
+  // when the page is at the top, which would otherwise leave a gap where the
+  // header shows through above the drawer.
+  const [drawerTop, setDrawerTop] = useState(64)
 
   const [lastPathname, setLastPathname] = useState(pathname)
   if (pathname !== lastPathname) {
@@ -35,6 +41,12 @@ export function Navbar() {
     if (!open) return
 
     document.body.style.overflow = 'hidden'
+
+    const updateDrawerTop = () => {
+      if (headerRef.current) setDrawerTop(headerRef.current.getBoundingClientRect().bottom)
+    }
+    updateDrawerTop()
+    window.addEventListener('resize', updateDrawerTop)
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -64,13 +76,14 @@ export function Navbar() {
 
     return () => {
       document.body.style.overflow = ''
+      window.removeEventListener('resize', updateDrawerTop)
       document.removeEventListener('keydown', onKeyDown)
     }
   }, [open])
 
   return (
     <>
-    <header className="sticky top-0 z-40 h-16 border-b border-line-soft bg-bg/80 backdrop-blur-sm md:h-20">
+    <header ref={headerRef} className="sticky top-0 z-40 h-16 border-b border-line-soft bg-bg/80 backdrop-blur-sm md:h-20">
       <Container>
         <nav className="flex h-16 items-center justify-between md:h-20">
           <Logo />
@@ -244,7 +257,12 @@ export function Navbar() {
             <button
               ref={toggleRef}
               type="button"
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => {
+                if (!open && headerRef.current) {
+                  setDrawerTop(headerRef.current.getBoundingClientRect().bottom)
+                }
+                setOpen((v) => !v)
+              }}
               className="rounded-md p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
@@ -270,7 +288,8 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-background md:hidden"
+            style={{ top: drawerTop }}
+            className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-background md:hidden"
           >
             <Container>
               <ul className="flex flex-col gap-1 pt-6">
