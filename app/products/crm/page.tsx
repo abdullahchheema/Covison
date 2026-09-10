@@ -251,7 +251,7 @@ export default function CrmProductPage() {
               <Reveal key={post.slug} delay={Math.min(i * 0.05, 0.2)}>
                 <Link href={`/insights/${post.slug}`} className="group flex flex-col gap-4">
                   <Figure
-                    src={`/images/insights/${post.slug}.png`}
+                    src={post.image}
                     alt=""
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="aspect-[4/3] w-full rounded-2xl"

@@ -643,15 +643,13 @@ export const team = [
 // Maps each service id to the tag of its matching case study (see lib/case-studies.ts),
 // used to cross-link service pages <-> case study pages without fuzzy string matching.
 export const serviceCaseStudyMap: Record<string, string> = {
-  consulting: 'Data Modernization',
-  automation: 'AI Copilot',
-  web: 'Marketplace MVP',
-  chatbots: 'AI Voice & Receptionist',
-  'lead-generation': 'Lead Qualification',
-  'ai-agents': 'Data Intelligence',
-  'crm-sales': 'CRM & Sales Automation',
-  // No workshop-style engagement among current case studies; that service page
-  // simply renders without a "related work" section until one exists.
+  automation: 'AI Content Engine',
+  web: 'Smart Transit Management System',
+  chatbots: 'AI Customer Support Automation',
+  'ai-agents': 'Personal Assistant AI',
+  // No matching case study for consulting, lead-generation, crm-sales, or
+  // workshops among current entries; those service pages simply render
+  // without a "related work" section until one exists.
 }
 
 export interface InsightPost {
@@ -664,6 +662,8 @@ export interface InsightPost {
   readingTime?: string
   /** Set when a post is also featured on a product page (e.g. 'crm' surfaces it on /products/crm). */
   relatedProduct?: string
+  /** Reuses an existing case-study image (abstract, client-agnostic) rather than a dedicated /images/insights/ asset. */
+  image: string
 }
 
 export const posts: InsightPost[] = [
@@ -677,6 +677,7 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '4 min read',
     relatedProduct: 'crm',
+    image: '/images/work/smallbiz-acquisitions-crm-daily-ai-qualification.png',
   },
   {
     slug: 'how-automated-follow-ups-prevent-leads-from-slipping-through-the-cracks',
@@ -688,6 +689,7 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '3 min read',
     relatedProduct: 'crm',
+    image: '/images/work/strong-franchise-lead-qualification-at-scale.png',
   },
   {
     slug: 'from-scattered-leads-to-one-intelligent-sales-pipeline',
@@ -699,6 +701,7 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '5 min read',
     relatedProduct: 'crm',
+    image: '/images/work/yourdelivery-hybrid-address-intelligence.png',
   },
   {
     slug: 'why-your-crm-should-work-around-your-business',
@@ -710,6 +713,7 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '4 min read',
     relatedProduct: 'crm',
+    image: '/images/work/bridgebot-ai-copilot-knowledge-graph.png',
   },
   {
     slug: 'how-ai-is-changing-the-modern-sales-workflow',
@@ -721,6 +725,7 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '5 min read',
     relatedProduct: 'crm',
+    image: '/images/work/noah-secure-ai-legacy-code-regulated-environments.png',
   },
   {
     slug: 'building-a-sales-system-that-never-forgets-a-follow-up',
@@ -732,5 +737,6 @@ export const posts: InsightPost[] = [
     author: 'Covison Team',
     readingTime: '3 min read',
     relatedProduct: 'crm',
+    image: '/images/work/confidential-fmcg-data-modernization.png',
   },
 ]

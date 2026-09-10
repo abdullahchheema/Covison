@@ -14,7 +14,11 @@ export function LinkedInEmbed({ url, title }: { url: string; title: string }) {
   if (!urn) return null
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl bg-surface-2">
+    // LinkedIn's own embed widget is a fixed 504px wide, narrow/tall format.
+    // Stretching the iframe to the full column width doesn't reflow the post
+    // content, it just leaves it small and centred inside a wide empty frame,
+    // which is what made a document attached to a post unreadable.
+    <div className="mx-auto w-full max-w-[504px] overflow-hidden rounded-2xl bg-surface-2">
       <iframe
         src={`https://www.linkedin.com/embed/feed/update/${urn}`}
         title={title}

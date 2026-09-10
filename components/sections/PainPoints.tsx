@@ -9,20 +9,20 @@ import { CaseStudyTile } from '@/components/sections/CaseStudyTile'
 // straight to proof rather than a generic claim.
 const featured = [
   {
-    slug: 'smallbiz-acquisitions-crm-daily-ai-qualification',
-    problem: "Leads slip through a CRM that's fallen out of sync, faster than one person can qualify them.",
+    slug: 'ai-customer-support-automation',
+    problem: 'The same five support questions eat the day, while tickets that actually need a human wait in line.',
   },
   {
-    slug: 'confidential-fmcg-data-modernization',
-    problem: 'Forecasts live across a dozen spreadsheets, and every cycle means days of manual reconciliation.',
+    slug: 'ai-content-engine',
+    problem: 'One good idea gets rewritten three times over, once per platform, before it ever gets published.',
   },
   {
-    slug: 'no-answer-production-ai-receptionist-platform',
-    problem: "Missed calls become missed bookings, and round-the-clock reception isn't realistic for small operators.",
+    slug: 'ai-personal-assistant-automation',
+    problem: "Checking tomorrow's schedule still means opening five tabs and scanning a calendar by hand.",
   },
   {
-    slug: 'yourdelivery-hybrid-address-intelligence',
-    problem: 'Incoming data is too messy to use without manual correction, and that stops scaling.',
+    slug: 'cda-smart-bus-management-system',
+    problem: 'No live visibility into where a fleet actually is, or what’s showing on a screen at any single stop.',
   },
 ]
 

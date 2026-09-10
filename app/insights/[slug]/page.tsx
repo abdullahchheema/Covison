@@ -47,7 +47,7 @@ export default async function InsightArticlePage({
 
       <Section spacing="sm" className="!pt-0">
         <Figure
-          src={`/images/insights/${post.slug}.png`}
+          src={post.image}
           alt=""
           sizes="(min-width: 1024px) 1152px, 100vw"
           className="aspect-[21/9] w-full rounded-2xl"
