@@ -20,8 +20,6 @@ interface PageHeaderProps {
   children?: ReactNode
   /** Renders as a full-bleed background image behind the header, with a dark scrim and white text, instead of the default light bloom. */
   heroImage?: string
-  /** Expands the hero to fill the remaining viewport height below the sticky header, instead of the shorter banner height. */
-  heroFullHeight?: boolean
 }
 
 export function PageHeader({
@@ -31,7 +29,6 @@ export function PageHeader({
   description,
   children,
   heroImage,
-  heroFullHeight = false,
 }: PageHeaderProps) {
   const hasImage = Boolean(heroImage)
 
@@ -70,12 +67,7 @@ export function PageHeader({
 
   if (heroImage) {
     return (
-      <section
-        className={cn(
-          'relative isolate flex items-center overflow-hidden',
-          heroFullHeight ? 'min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]' : 'min-h-[55vh] sm:min-h-[60vh]',
-        )}
-      >
+      <section className="relative isolate flex min-h-[55vh] items-center overflow-hidden sm:min-h-[60vh]">
         <div className="absolute inset-0 z-0">
           <Figure src={heroImage} alt="" sizes="100vw" className="h-full w-full" />
         </div>

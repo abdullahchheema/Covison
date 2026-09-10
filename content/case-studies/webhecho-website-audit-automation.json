@@ -1,10 +1,10 @@
 {
   "client": "Webhecho",
   "tag": "Marketing Automation",
-  "title": "An Automated Website Audit and Lead Qualification Pipeline for a US Marketing Agency",
+  "title": "An Automated Website Audit and Lead Pipeline",
   "subtitle": "Turning bad website scores into a qualified outreach list, automatically",
   "blurb": "Built a Make.com automation for Webhecho, a US-based marketing agency, that audits prospects' websites via Google PageSpeed Insights, generates an AI before/after redesign comparison, scores leads, and routes qualified prospects into cold email outreach.",
-  "result": "Replaced manual website audits and prospecting with a fully automated pipeline from site scan to outreach-ready lead",
+  "result": "Automated the pipeline from site audit to outreach-ready lead",
 
   "meta": {
     "industry": "Marketing Agency",

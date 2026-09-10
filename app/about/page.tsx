@@ -57,8 +57,6 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About Covison"
         title="We help businesses operate at a higher level."
-        heroImage="/images/hero.png"
-        heroFullHeight
       />
 
       {/* Intro */}

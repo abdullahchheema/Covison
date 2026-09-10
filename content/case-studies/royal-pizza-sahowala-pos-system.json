@@ -1,10 +1,10 @@
 {
   "client": "Royal Pizza Sahowala",
-  "tag": "Business Automation & Growth System",
-  "title": "Replacing Handwritten Registers with a Touchscreen POS and Reporting Dashboard",
+  "tag": "Business Automation",
+  "title": "A Touchscreen POS and Reporting Dashboard",
   "subtitle": "From paper tickets to an electronic order-punching system",
   "blurb": "Built a desktop touchscreen POS and order-punching system for a pizza restaurant that previously ran entirely on handwritten registers and paper receipts, paired with a live reporting dashboard.",
-  "result": "Replaced handwritten registers and triple paper receipts with an electronic touchscreen POS and reporting dashboard, now in daily use",
+  "result": "Replaced handwritten registers with a digital POS, now in daily use",
 
   "meta": {
     "industry": "Quick Service Restaurant (Pizza)",

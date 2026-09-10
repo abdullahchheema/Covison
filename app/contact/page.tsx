@@ -29,8 +29,6 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Let's build something exceptional."
         description="Whether you want to automate your operations, launch a premium B2B website, or explore where AI can help, start with a conversation. No commitment, no pressure."
-        heroImage="/images/hero.png"
-        heroFullHeight
       />
 
       <section className="bg-background pb-24 pt-20 sm:pb-28 sm:pt-24">
