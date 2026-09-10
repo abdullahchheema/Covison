@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
+import { LinkedInIcon } from '@/components/ui/LinkedInIcon'
 import { team, affiliate } from '@/lib/site'
 import { CTASection } from '@/components/sections/CTASection'
 import { CapabilityGrid } from '@/components/sections/CapabilityGrid'
@@ -142,22 +143,30 @@ export default function AboutPage() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-8 border-t border-line-soft pt-10 sm:mt-14 sm:grid-cols-3 sm:pt-12">
-          {team.map(({ name, role, bio }, i) => (
-            <Reveal key={name} delay={0.06 + i * 0.06}>
-              <div className="flex h-full flex-col gap-6">
+        <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-3">
+          {team.map(({ name, role, education, bio, linkedin }, i) => (
+            <Reveal key={name} delay={0.06 + i * 0.06} className="min-w-0">
+              <div className="flex h-full flex-col gap-5 rounded-xl border border-line-soft bg-surface-2 p-7">
                 <div>
-                  <p className="text-2xl font-semibold tracking-tight text-foreground">{name}</p>
-                  <p className="eyebrow mt-1">{role}</p>
+                  <p className="text-xl font-semibold tracking-tight text-foreground">{name}</p>
+                  <p className="mt-1 text-sm text-text-2">
+                    {role} &middot; {education}
+                  </p>
                 </div>
 
-                <div className="flex flex-col gap-3">
-                  {bio.map((paragraph, j) => (
-                    <p key={j} className="text-sm leading-relaxed text-text-2">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                <p className="text-sm leading-relaxed text-text-2">{bio[0]}</p>
+
+                {linkedin && (
+                  <a
+                    href={linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${name} on LinkedIn`}
+                    className="mt-auto flex h-8 w-8 items-center justify-center rounded-md border border-border text-text-3 transition-colors hover:text-foreground"
+                  >
+                    <LinkedInIcon size={14} />
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}

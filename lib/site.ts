@@ -618,30 +618,24 @@ export const faq = [
 export const team = [
   {
     name: 'Abdullah Imran',
-    role: 'Co-Founder, Strategy & Client Delivery',
+    role: 'Co-Founder',
+    education: 'SE @ SEECS',
     linkedin: '',
-    bio: [
-      "Abdullah runs point on strategy and delivery, making sure every engagement starts with a clear problem and ends with a measurable result, before a single automation gets built.",
-      'He owns the client relationship from first call to final handoff, keeping projects scoped, on schedule, and tied to outcomes the client can point to.',
-    ],
+    bio: ['Handles the development and technical side of every project.'],
   },
   {
     name: 'Saad Rabbani',
-    role: 'Co-Founder, AI Automation & Web Development',
+    role: 'Co-Founder',
+    education: 'EE @ SEECS',
     linkedin: '',
-    bio: [
-      "Saad leads Covison's technical build: from AI agents and workflow automations to the websites and applications that put them in front of clients. He thinks in systems, not one-off scripts, so what he ships keeps running long after the handoff.",
-      "He sets the technical direction for every engagement, turning a client's operational bottlenecks into automations and interfaces that hold up under real usage, not just demos.",
-    ],
+    bio: ["The strategist shaping how Covison approaches every engagement."],
   },
   {
     name: 'Muhammad Ali Murtaza',
-    role: 'Co-Founder, Growth & Operations',
+    role: 'Co-Founder',
+    education: 'BBA @ NBS',
     linkedin: '',
-    bio: [
-      'Ali handles the operational and growth side of Covison, from partnerships to day-to-day business operations, so engagements move smoothly without adding overhead to the client relationship.',
-      'He works alongside Saad and Abdullah to keep new business, vendor relationships, and internal operations organized, so the whole team can stay focused on delivery.',
-    ],
+    bio: ['The business lead, driving growth and marketing for Covison.'],
   },
 ]
 
