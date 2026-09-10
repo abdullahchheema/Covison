@@ -1,10 +1,16 @@
-function extractActivityUrn(url: string): string | null {
-  const match = url.match(/activity[:-](\d+)/)
-  return match ? `urn:li:activity:${match[1]}` : null
+// LinkedIn post URNs come in a few types (ugcPost, activity, share) that are
+// NOT interchangeable, embedding the wrong type 404s. If the given URL
+// already contains a full urn (e.g. pasted straight from LinkedIn's own
+// "Embed this post" code), use it as-is rather than guessing at a type.
+function extractEmbedUrn(url: string): string | null {
+  const urnMatch = url.match(/urn:li:\w+:\d+/)
+  if (urnMatch) return urnMatch[0]
+  const activityMatch = url.match(/activity[:-](\d+)/)
+  return activityMatch ? `urn:li:activity:${activityMatch[1]}` : null
 }
 
 export function LinkedInEmbed({ url, title }: { url: string; title: string }) {
-  const urn = extractActivityUrn(url)
+  const urn = extractEmbedUrn(url)
   if (!urn) return null
 
   return (
