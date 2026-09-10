@@ -47,7 +47,7 @@ export function EngagementTiers() {
         {tiers.map((tier, i) => {
           const tierServices = tier.serviceIds.map(byId)
           return (
-            <Reveal key={tier.index} delay={i * 0.08}>
+            <Reveal key={tier.index} delay={i * 0.08} className="min-w-0">
               <div className="flex h-full flex-col gap-5 rounded-xl bg-surface-2 p-7 sm:p-8">
                 <div className="flex items-center justify-between gap-3">
                   <span className="eyebrow">{tier.index}</span>

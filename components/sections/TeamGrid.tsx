@@ -13,7 +13,7 @@ export function TeamGrid() {
 
       <div className="mt-12 grid gap-8 sm:mt-14 sm:grid-cols-3">
         {team.map(({ name, role, bio, linkedin }, i) => (
-          <Reveal key={name} delay={i * 0.08}>
+          <Reveal key={name} delay={i * 0.08} className="min-w-0">
             <div className="flex flex-col items-center gap-3 text-center">
               <div>
                 <p className="text-base font-semibold text-foreground">{name}</p>

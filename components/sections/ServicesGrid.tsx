@@ -22,7 +22,7 @@ export function ServicesGrid() {
           const Icon = getServiceIcon(category.icon)
           const count = services.filter((s) => s.category === category.id).length
           return (
-            <Reveal key={category.id} delay={i * 0.06}>
+            <Reveal key={category.id} delay={i * 0.06} className="min-w-0">
               <Link
                 href="/services"
                 className="group flex h-full flex-col gap-4 rounded-xl border border-line-soft bg-surface-2 p-7 transition-colors hover:bg-surface-3"

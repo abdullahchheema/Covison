@@ -58,7 +58,7 @@ export function IndustriesGrid() {
         {industries.map((industry, i) => {
           const Icon = iconMap[industry.icon as keyof typeof iconMap] ?? Layers
           return (
-            <Reveal key={industry.id} delay={(i % 6) * 0.04}>
+            <Reveal key={industry.id} delay={(i % 6) * 0.04} className="min-w-0">
               <article className="flex h-full flex-col gap-4 rounded-xl bg-surface-3 p-7 sm:p-8">
                 <Icon size={20} className="text-brand" />
 

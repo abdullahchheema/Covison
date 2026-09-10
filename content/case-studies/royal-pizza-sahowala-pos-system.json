@@ -1,0 +1,56 @@
+{
+  "client": "Royal Pizza Sahowala",
+  "tag": "Point of Sale & Order Management System",
+  "title": "Replacing Handwritten Registers with a Touchscreen POS and Reporting Dashboard",
+  "subtitle": "From paper tickets to an electronic order-punching system",
+  "blurb": "Built a desktop touchscreen POS and order-punching system for a pizza restaurant that previously ran entirely on handwritten registers and paper receipts, paired with a live reporting dashboard.",
+  "result": "Replaced handwritten registers and triple paper receipts with an electronic touchscreen POS and reporting dashboard, now in daily use",
+
+  "meta": {
+    "industry": "Quick Service Restaurant (Pizza)",
+    "solutions": "Desktop POS Software, Order Management, Business Dashboard"
+  },
+
+  "whoFor": "A pizza restaurant running entirely on a manual, old-school register process, with no digital record of orders, sales, or staff activity.",
+
+  "challengeIntro": "Every order was handwritten into a physical register, with staff manually creating three separate paper receipts per order: one for the kitchen, one for the owner, and one for the customer. There was no digital record of sales, no way to track cancellations or fulfillment type, and no reporting on revenue or best-selling items.",
+  "challengePoints": [
+    "Orders taken and recorded entirely by hand at a physical register",
+    "Three separate handwritten receipts created per order (kitchen, owner, customer)",
+    "No way to review past orders by date range or filter by status",
+    "No visibility into revenue, canceled orders, or which items were selling best",
+    "No system for managing staff or coordinating delivery riders"
+  ],
+
+  "builtIntro": "A touchscreen desktop POS system that digitizes the full order-punching process, paired with a management dashboard covering menu, orders, staff, and reporting.",
+  "builtPoints": [
+    "Touchscreen order-punching interface",
+    "Digital menu management",
+    "Automatic receipt printing for kitchen, customer, and owner",
+    "Order history with custom date-range filtering (last month, quarter, year, or any custom range)",
+    "Order status breakdown by canceled, dine-in, takeaway, and delivery",
+    "Revenue reporting",
+    "Best-selling item reports",
+    "Staff management",
+    "Delivery and rider assignment"
+  ],
+  "builtOutro": "The system was packaged as a Windows installer and deployed directly onto the client's own machine, replacing the old register process. It is now in active daily use.",
+
+  "pipeline": [
+    { "label": "Order punched", "detail": "Taken on the touchscreen POS" },
+    { "label": "Receipts printed", "detail": "Kitchen, customer, and owner copies" },
+    { "label": "Fulfilled", "detail": "Dine-in, takeaway, or delivery" },
+    { "label": "Tracked in dashboard", "detail": "Revenue, status, and item-level reporting" }
+  ],
+
+  "capabilities": [
+    "Touchscreen POS",
+    "Order Punching System",
+    "Automatic Receipt Printing",
+    "Custom Date-Range Reporting",
+    "Order Status Tracking",
+    "Revenue Reporting",
+    "Staff Management",
+    "Delivery & Rider Assignment"
+  ]
+}

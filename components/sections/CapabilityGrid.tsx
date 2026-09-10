@@ -24,7 +24,7 @@ export function CapabilityGrid() {
 
       <div className="mt-12 grid gap-x-8 gap-y-8 border-t border-line-soft pt-10 sm:mt-14 sm:grid-cols-2 sm:pt-12 lg:grid-cols-3">
         {capabilities.map((cap, i) => (
-          <Reveal key={cap.domain} delay={(i % 3) * 0.06}>
+          <Reveal key={cap.domain} delay={(i % 3) * 0.06} className="min-w-0">
             <div className="flex flex-col gap-1.5">
               <p className="text-sm font-semibold text-foreground">{cap.domain}</p>
               <p className="text-sm text-text-2">{cap.stack}</p>
