@@ -24,7 +24,7 @@ export default function ProductsPage() {
         description="Alongside client work, we build and run our own products. Here's what's live today."
       />
 
-      <Section spacing="lg" className="pt-0">
+      <Section spacing="lg" className="!pt-0">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {products.map((product, i) => {
             return (

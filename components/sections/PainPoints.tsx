@@ -47,13 +47,15 @@ export function PainPoints() {
       <ol className="mt-12 grid gap-x-8 gap-y-10 border-t border-line-soft pt-10 sm:mt-14 sm:grid-cols-2 sm:pt-12">
         {points.map(({ study, problem }, i) => (
           <Reveal key={study.slug} delay={i * 0.06} className="min-w-0">
-            <li className="flex flex-col">
-              <div className="flex max-w-sm flex-col gap-5">
+            <li className="flex h-full flex-col">
+              <div className="flex h-full max-w-sm flex-col gap-5">
                 <div className="flex flex-col gap-4">
                   <span className="eyebrow">{String(i + 1).padStart(2, '0')}</span>
-                  <p className="min-h-20 text-base leading-relaxed text-foreground">{problem}</p>
+                  <p className="text-base leading-relaxed text-foreground">{problem}</p>
                 </div>
-                <CaseStudyTile study={study} />
+                <div className="mt-auto">
+                  <CaseStudyTile study={study} />
+                </div>
               </div>
             </li>
           </Reveal>

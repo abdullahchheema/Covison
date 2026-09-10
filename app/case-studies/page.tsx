@@ -23,7 +23,7 @@ export default function CaseStudiesPage() {
         description={`${studies.length} engagements across AI copilots, legacy modernization, lead qualification, and more. Here's what we built, why it worked, and what changed.`}
       />
 
-      <Section spacing="lg" className="pt-0">
+      <Section spacing="lg" className="!pt-0">
         <CaseStudyFilter studies={studies} />
       </Section>
 

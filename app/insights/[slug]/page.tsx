@@ -45,7 +45,7 @@ export default async function InsightArticlePage({
         description={post.excerpt}
       />
 
-      <Section spacing="sm" className="pt-0">
+      <Section spacing="sm" className="!pt-0">
         <Figure
           src={`/images/insights/${post.slug}.png`}
           alt=""

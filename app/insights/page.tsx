@@ -24,7 +24,7 @@ export default function InsightsPage() {
         description="What we're learning while building AI systems and websites for B2B companies, published as we ship, not on a content calendar."
       />
 
-      <Section spacing="lg" className="pt-0">
+      <Section spacing="lg" className="!pt-0">
         {posts.length === 0 ? (
           <Reveal>
             <div className="flex flex-col items-start gap-4 border-t border-line-soft pt-10">
