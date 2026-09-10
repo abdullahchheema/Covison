@@ -1,0 +1,56 @@
+{
+  "client": "Paris Móviles",
+  "tag": "Repair & Retail E-Commerce",
+  "title": "A Bilingual Booking, Repair, and E-Commerce Platform for a Spanish Mobile Retailer",
+  "subtitle": "Unifying two shops, repairs and retail, into one platform",
+  "blurb": "Built a bilingual (Spanish/English) website and admin dashboard for Paris Móviles, a mobile repair and electronics retailer in Vitoria-Gasteiz with two physical locations, covering repair bookings, quotations, order tracking, product sales, and full back-office management.",
+  "result": "Unified two separately-run shops, repairs and retail, into a single bilingual platform with a management dashboard",
+
+  "meta": {
+    "industry": "Mobile Repair & Consumer Electronics Retail",
+    "market": "Spain (Vitoria-Gasteiz)",
+    "solutions": "Web Development, E-Commerce, Business Dashboard"
+  },
+
+  "whoFor": "A business owner in Vitoria-Gasteiz, Spain, operating two physical shops since 2011, one specializing in mobile phone repairs, the other selling phones, accessories, and electronics, who needed a unified digital presence for both.",
+
+  "challengeIntro": "The client ran two separate shops with no shared digital system: one for phone repairs, one for retail products. Customers had no way to request repair quotations, book appointments, or purchase products online, and all operations were tracked manually across both locations.",
+  "challengePoints": [
+    "No online channel for customers to request repair quotations or book appointments",
+    "No e-commerce presence for the accessories and electronics shop",
+    "No centralized system to track orders, inventory, or customer messages across both shops",
+    "Needed to serve both Spanish and English-speaking customers"
+  ],
+
+  "builtIntro": "A complete bilingual front-end and back-end system covering both sides of the business, repair services and product retail, with a unified admin dashboard.",
+  "builtPoints": [
+    "Repair quotation requests",
+    "Repair booking",
+    "Order tracking",
+    "Contact form + WhatsApp integration",
+    "Product catalog and purchases",
+    "Local pickup",
+    "Cash on delivery",
+    "Inventory/stock management",
+    "Spanish/English bilingual UI"
+  ],
+  "builtOutro": "The admin dashboard gives the client a single place to manage incoming orders, repair requests, stock levels, product listings, service listings, and customer messages, replacing what was previously handled manually across two separate shop operations.",
+
+  "pipeline": [
+    { "label": "Bring it in", "detail": "Walk in or book online, no appointment needed" },
+    { "label": "Free diagnosis", "detail": "Inspection and quote before any work starts" },
+    { "label": "We repair", "detail": "Most repairs done while the customer waits" }
+  ],
+
+  "capabilities": [
+    "Repair booking system",
+    "Quotation requests",
+    "Order tracking",
+    "E-commerce catalog",
+    "Local pickup & cash on delivery",
+    "Inventory management",
+    "Bilingual (ES/EN)",
+    "Admin dashboard",
+    "WhatsApp integration"
+  ]
+}
