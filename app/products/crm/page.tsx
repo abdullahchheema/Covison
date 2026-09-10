@@ -143,7 +143,7 @@ export default function CrmProductPage() {
                 Book a demo
               </Button>
               <Button href="https://crm.covison.com" variant="outline" size="lg" external>
-                See how it works
+                Get Started
               </Button>
             </div>
           </div>
@@ -273,6 +273,22 @@ export default function CrmProductPage() {
           </div>
         </Section>
       )}
+
+      {/* 08: Get started */}
+      <Section variant="ink" spacing="lg">
+        <Reveal>
+          <div className="mx-auto flex max-w-xl flex-col items-center gap-4 text-center">
+            <h2 className="text-h2 text-white">Bring your pipeline into one place.</h2>
+            <p className="text-body-lg text-white/70">
+              Free to use. No trial period, no credit card required.
+            </p>
+            <Button href="https://crm.covison.com" onInk size="lg" external className="mt-2">
+              Get Started
+              <ArrowRight size={16} />
+            </Button>
+          </div>
+        </Reveal>
+      </Section>
 
       <CTASection />
     </>

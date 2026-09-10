@@ -10,23 +10,19 @@ import { CaseStudyTile } from '@/components/sections/CaseStudyTile'
 const featured = [
   {
     slug: 'smallbiz-acquisitions-crm-daily-ai-qualification',
-    problem:
-      "Leads slip through a CRM that's fallen out of sync, and one person manually qualifying every lead can only cover so many hours in a day.",
+    problem: "Leads slip through a CRM that's fallen out of sync, faster than one person can qualify them.",
   },
   {
     slug: 'confidential-fmcg-data-modernization',
-    problem:
-      'Forecasts still live across a dozen disconnected spreadsheets, and every cycle means days of manual reconciliation before anyone trusts the numbers.',
+    problem: 'Forecasts live across a dozen spreadsheets, and every cycle means days of manual reconciliation.',
   },
   {
     slug: 'no-answer-production-ai-receptionist-platform',
-    problem:
-      "Missed calls quietly become missed bookings, and staffing a receptionist around the clock isn't realistic for most small operators.",
+    problem: "Missed calls become missed bookings, and round-the-clock reception isn't realistic for small operators.",
   },
   {
     slug: 'yourdelivery-hybrid-address-intelligence',
-    problem:
-      'Incoming data is such a mess that only a small fraction is usable without manual correction, and that stops scaling the moment volume goes up.',
+    problem: 'Incoming data is too messy to use without manual correction, and that stops scaling.',
   },
 ]
 
