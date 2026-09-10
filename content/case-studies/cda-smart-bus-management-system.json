@@ -1,0 +1,47 @@
+{
+  "client": "Inlights",
+  "tag": "Smart Transit Management System",
+  "title": "A Real-Time Fleet Management System for Islamabad's Metro Bus Service",
+  "subtitle": "Live tracking, route control, and station management in one platform",
+  "blurb": "Built a real-time bus fleet management system for Inlights, a company working with the Capital Development Authority (CDA) Islamabad, covering route and stop creation, live bus tracking and speed monitoring, bus-to-route assignment, and per-stop digital screen and announcement control.",
+  "result": "Gave Inlights a single system to manage routes, stops, and live fleet monitoring for Islamabad's metro bus service",
+
+  "meta": {
+    "industry": "Public Transit / Government",
+    "market": "Pakistan (Islamabad)",
+    "solutions": "Web Development, Real-Time Fleet Tracking, Backend Systems"
+  },
+
+  "whoFor": "Inlights, a company actively working with the Capital Development Authority (CDA) of Islamabad on the city's metro bus service.",
+
+  "challengeIntro": "Inlights needed a centralized way to manage the metro bus network's routes and stops, monitor the live status of buses across the fleet, and control the information shown to passengers at each stop.",
+  "challengePoints": [
+    "No digital system for creating and managing bus routes and stops",
+    "No way to assign buses to specific routes from a central system",
+    "No live visibility into bus location or speed across the fleet",
+    "No way to manage or update digital screen content and announcements at individual stops"
+  ],
+
+  "builtIntro": "A backend system built with Django and MongoDB, giving administrators full control over the fleet, routes, and station-level communication.",
+  "builtPoints": [
+    "Route creation and management",
+    "Bus stop creation and management",
+    "Bus-to-route assignment",
+    "Live bus location tracking",
+    "Bus speed monitoring",
+    "Per-stop digital screen content management",
+    "Announcement and warning broadcasting to stops"
+  ],
+  "builtOutro": "Administrators can manage the entire network from route planning down to what's displayed on a screen at an individual stop, with live visibility into where every bus is and how fast it's moving.",
+
+  "capabilities": [
+    "Live GPS Tracking",
+    "Route Management",
+    "Stop Management",
+    "Speed Monitoring",
+    "Digital Signage Control",
+    "Announcement Broadcasting",
+    "Django",
+    "MongoDB"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "client": "Larkspur Software",
+  "tag": "AI Content Engine",
+  "title": "An AI Content Engine for a US B2B SaaS Company",
+  "subtitle": "Writing every piece of content once, instead of rebuilding it per platform",
+  "illustrative": true,
+  "blurb": "Built an n8n pipeline for a US B2B SaaS company that researches a topic automatically, then drafts publish-ready LinkedIn, X, and blog content in parallel from a single input.",
+  "result": "Replaced writing the same content three times per topic with one pipeline that outputs all three formats at once",
+
+  "meta": {
+    "industry": "B2B SaaS",
+    "market": "United States",
+    "solutions": "n8n, LLM Workflows, Multi-Format Publishing"
+  },
+
+  "whoFor": "A B2B SaaS company needing a steady output of blog, social, and newsletter content without scaling up a content team.",
+
+  "challengeIntro": "The team kept rebuilding the same content three times: write the LinkedIn post, redo it for X, redo it again for the blog, for every single topic.",
+  "challengePoints": [
+    "The same idea had to be rewritten from scratch for each platform",
+    "Nothing verified a draft against live sources before it was written",
+    "No repeatable process connecting one input to multiple finished outputs"
+  ],
+
+  "builtIntro": "Built in n8n: a topic or campaign idea goes into the pipeline, a research agent pulls live sources and news before anything gets written, then three writer agents draft the LinkedIn post, the X post, and the blog piece in parallel, each tuned to that platform's format.",
+  "builtPoints": [
+    "Automatic research pass before any writing starts",
+    "Three platform-tuned writer agents running in parallel, not in sequence",
+    "Publish-ready copy in each channel's expected structure, not drafts to edit"
+  ],
+  "builtOutro": "Running the three writers in parallel instead of one after another turned out to be what actually saved the time, sequencing them barely helped.",
+
+  "capabilities": [
+    "Automatic Source Research",
+    "Parallel Multi-Format Drafting",
+    "Platform-Specific Formatting",
+    "Publish-Ready Output"
+  ],
+
+  "linkedinEmbed": "https://www.linkedin.com/feed/update/urn:li:activity:7494106261429559296"
+}

@@ -1,0 +1,41 @@
+{
+  "client": "Kestrel Freight",
+  "tag": "AI Customer Support Automation",
+  "title": "An AI Support System for a US Logistics Company",
+  "subtitle": "Reading, understanding, and replying to support emails without a human touching most of them",
+  "illustrative": true,
+  "blurb": "Built an n8n workflow for a US logistics company that classifies incoming support emails, pulls answers from the client's own knowledge base, and drafts an on-brand reply in seconds.",
+  "result": "Freed the support team from answering the same handful of questions every day, so they could focus on issues that actually need a human",
+
+  "meta": {
+    "industry": "Logistics",
+    "market": "United States",
+    "solutions": "n8n, AI Email Classification, Knowledge Base Retrieval"
+  },
+
+  "whoFor": "A logistics company whose support team was drowning in the same handful of repetitive questions every day: order status, refund policy, invoice requests.",
+
+  "challengeIntro": "Most support tickets were the same five questions on repeat, order status, refund policy, where's my invoice, same questions, different customer, endless hours spent answering them by hand.",
+  "challengePoints": [
+    "The same repetitive questions consumed most of the team's time",
+    "Replies relied on generic answers instead of the client's own knowledge base",
+    "No automatic classification to separate simple questions from ones that need a human"
+  ],
+
+  "builtIntro": "Built in n8n: every inquiry gets classified automatically (order issue, refund, general question), the AI pulls accurate answers from the client's own knowledge base rather than generic responses, and a professional, on-brand reply gets drafted or sent in seconds.",
+  "builtPoints": [
+    "Automatic classification of every inbound inquiry",
+    "Answers sourced from the client's own knowledge base, not generic responses",
+    "On-brand reply drafted or sent within seconds"
+  ],
+  "builtOutro": "The support team stops answering the same question for the hundredth time and starts handling the conversations that actually need real problem solving.",
+
+  "capabilities": [
+    "Automatic Inquiry Classification",
+    "Knowledge Base Retrieval",
+    "On-Brand Reply Drafting",
+    "Human Escalation for Complex Cases"
+  ],
+
+  "linkedinEmbed": "https://www.linkedin.com/feed/update/urn:li:activity:7492837215094493184"
+}

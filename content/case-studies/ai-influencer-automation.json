@@ -1,0 +1,41 @@
+{
+  "client": "Rowan & Sage",
+  "tag": "AI Influencer Automation",
+  "title": "A Virtual AI Influencer Pipeline for a UK Beauty Brand",
+  "subtitle": "Running an entire AI influencer account end to end, no manual posting or planning",
+  "illustrative": true,
+  "blurb": "Built an n8n workflow for a UK beauty brand that runs a virtual influencer account end to end: weekly content planning, parallel image, video, and caption generation, and automatic publishing to Instagram.",
+  "result": "Replaced a team manually planning, shooting, writing, and posting content each week with a single reviewable weekly batch",
+
+  "meta": {
+    "industry": "Beauty & Cosmetics",
+    "market": "United Kingdom",
+    "solutions": "n8n, AI Image and Video Generation, Content Automation"
+  },
+
+  "whoFor": "A UK beauty brand wanting a consistent influencer-style content presence without relying on a human influencer partnership.",
+
+  "challengeIntro": "Running an AI influencer account still meant a team manually planning content, producing images and captions, and posting on schedule every week, the exact overhead an AI influencer was supposed to remove.",
+  "challengePoints": [
+    "No manual posting or content planning, the account needed to run on its own",
+    "Content needed a consistent identity, tone, and visual style across every post",
+    "Producing images, video, and captions by hand every week did not scale"
+  ],
+
+  "builtIntro": "Built in n8n: the influencer's identity, tone, and visual style are defined once as a source profile, then the workflow takes over from there.",
+  "builtPoints": [
+    "A full week of content ideas generated automatically into a content calendar",
+    "Separate agents generate the images, video, and captions for each planned post in parallel",
+    "Approved content publishes to Instagram automatically on schedule"
+  ],
+  "builtOutro": "What used to take a team manually managing content, planning, shooting, writing, and posting now runs as a single reviewable weekly batch. The production work disappears.",
+
+  "capabilities": [
+    "Persona Profile as Source Input",
+    "Automatic Weekly Content Planning",
+    "Parallel Image, Video, and Caption Generation",
+    "Automatic Instagram Publishing"
+  ],
+
+  "linkedinEmbed": "https://www.linkedin.com/feed/update/urn:li:activity:7495045295576104960"
+}

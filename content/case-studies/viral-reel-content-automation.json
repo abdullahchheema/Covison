@@ -1,0 +1,44 @@
+{
+  "client": "Marlow & Finch",
+  "tag": "Viral Reel Automation",
+  "title": "An End-to-End Viral Reel Automation for a Fashion E-Commerce Brand",
+  "subtitle": "One workflow, concept to finished reel, with no manual editing in between",
+  "illustrative": true,
+  "blurb": "Built an n8n workflow for a US fashion e-commerce brand that generates viral reel ideas, produces the images and video, adds a soundscape, and stitches everything into a finished short-form reel automatically.",
+  "result": "Automated the entire creative workflow from concept to finished reel, not just one step in the middle of it",
+
+  "meta": {
+    "industry": "Fashion E-Commerce",
+    "market": "United States",
+    "solutions": "n8n, AI Image and Video Generation, Automated Video Assembly"
+  },
+
+  "whoFor": "A fashion e-commerce brand needing a consistent volume of short-form video content without a dedicated in-house editing team.",
+
+  "challengeIntro": "Producing short-form video content end to end, from an idea through a finished edit, meant manual work at nearly every stage of the process.",
+  "challengePoints": [
+    "No system for turning an idea into a full set of visual prompts and assets",
+    "Manual video editing and sound design was slow and inconsistent",
+    "No connection between content production and the publishing pipeline"
+  ],
+
+  "builtIntro": "Built in n8n, the workflow generates viral reel ideas with AI, writes detailed visual prompts, produces the AI-generated images, turns those images into cinematic video, generates an immersive soundscape, and stitches everything into a finished short-form reel, updating the production pipeline automatically as it goes.",
+  "builtPoints": [
+    "AI-generated reel concepts and detailed visual prompts",
+    "AI image generation from each prompt",
+    "Image-to-video conversion for cinematic motion",
+    "AI-generated soundscape per reel",
+    "Automatic stitching into a finished short-form video",
+    "Production pipeline updated automatically"
+  ],
+  "builtOutro": "The goal was never to automate one task in the process, it was to automate the entire creative workflow from concept to final output.",
+
+  "capabilities": [
+    "AI Concept and Prompt Generation",
+    "AI Image and Video Generation",
+    "AI Soundscape Generation",
+    "Automated Reel Assembly"
+  ],
+
+  "linkedinEmbed": "https://www.linkedin.com/feed/update/urn:li:activity:7491060718104952832"
+}

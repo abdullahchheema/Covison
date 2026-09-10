@@ -1,0 +1,40 @@
+{
+  "client": "Whitfield Homes",
+  "tag": "Personal Assistant AI",
+  "title": "A Personal Assistant AI for a UK Real Estate Agency",
+  "subtitle": "Ask a plain question, get your schedule back, no tabs, no manual scanning",
+  "illustrative": true,
+  "blurb": "Built an n8n agent for a UK real estate agency that answers a plain-language question like \"What's on my calendar tomorrow?\" by pulling live data from Google Calendar and replying with a clean daily summary.",
+  "result": "Replaced manually opening and scanning a calendar with a single question that returns a clean daily summary",
+
+  "meta": {
+    "industry": "Real Estate",
+    "market": "United Kingdom",
+    "solutions": "n8n, Google Calendar Integration, Natural-Language Scheduling"
+  },
+
+  "whoFor": "Agents who wanted to check tomorrow's schedule without opening five tabs or manually scanning a calendar grid every morning.",
+
+  "challengeIntro": "Checking the next day's schedule meant opening a calendar app and manually scanning a grid of meetings, every single morning.",
+  "challengePoints": [
+    "No quick way to get a schedule summary without opening the full calendar view",
+    "Understanding tomorrow's plan meant manually parsing a grid of meetings",
+    "No natural-language way to ask a simple scheduling question"
+  ],
+
+  "builtIntro": "Built in n8n: an AI agent reads a plain question like \"What's on my calendar tomorrow?\", understands the date context, pulls the relevant data from Google Calendar, and replies with a clean daily summary.",
+  "builtPoints": [
+    "Natural-language date understanding",
+    "Live Google Calendar data lookup",
+    "Clean daily summary reply, no manual scanning"
+  ],
+  "builtOutro": "One clear trigger, a few connected steps, and an AI layer that does the thinking in between: small automations like this save hours every week, and that adds up fast across a team.",
+
+  "capabilities": [
+    "Natural-Language Calendar Queries",
+    "Google Calendar Integration",
+    "Automatic Daily Summaries"
+  ],
+
+  "linkedinEmbed": "https://www.linkedin.com/feed/update/urn:li:activity:7492249294939471872"
+}
