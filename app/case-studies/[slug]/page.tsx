@@ -77,36 +77,44 @@ export default async function CaseStudyDetailPage({
         </Reveal>
         <dl className="mt-8 border-t border-line-soft">
           <Reveal delay={0.02}>
-            <div className="flex items-center gap-3 border-b border-line-soft py-4">
-              <User size={18} className="flex-shrink-0 text-brand" aria-hidden />
-              <dt className="font-medium text-foreground">Client:</dt>
-              <dd className="text-text-2">{study.client}</dd>
+            <div className="flex items-start gap-3 border-b border-line-soft py-4">
+              <User size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
+              <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                <dt className="flex-shrink-0 font-medium text-foreground">Client:</dt>
+                <dd className="min-w-0 text-text-2">{study.client}</dd>
+              </div>
             </div>
           </Reveal>
           {study.meta?.industry && (
             <Reveal delay={0.04}>
-              <div className="flex items-center gap-3 border-b border-line-soft py-4">
-                <Building2 size={18} className="flex-shrink-0 text-brand" aria-hidden />
-                <dt className="font-medium text-foreground">Industry:</dt>
-                <dd className="text-text-2">{study.meta.industry}</dd>
+              <div className="flex items-start gap-3 border-b border-line-soft py-4">
+                <Building2 size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
+                <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <dt className="flex-shrink-0 font-medium text-foreground">Industry:</dt>
+                  <dd className="min-w-0 text-text-2">{study.meta.industry}</dd>
+                </div>
               </div>
             </Reveal>
           )}
           {study.meta?.market && (
             <Reveal delay={0.06}>
-              <div className="flex items-center gap-3 border-b border-line-soft py-4">
-                <Globe size={18} className="flex-shrink-0 text-brand" aria-hidden />
-                <dt className="font-medium text-foreground">Market:</dt>
-                <dd className="text-text-2">{study.meta.market}</dd>
+              <div className="flex items-start gap-3 border-b border-line-soft py-4">
+                <Globe size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
+                <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <dt className="flex-shrink-0 font-medium text-foreground">Market:</dt>
+                  <dd className="min-w-0 text-text-2">{study.meta.market}</dd>
+                </div>
               </div>
             </Reveal>
           )}
           {study.meta?.solutions && (
             <Reveal delay={0.08}>
-              <div className="flex items-center gap-3 border-b border-line-soft py-4">
-                <Layers size={18} className="flex-shrink-0 text-brand" aria-hidden />
-                <dt className="font-medium text-foreground">Solutions:</dt>
-                <dd className="text-text-2">{study.meta.solutions}</dd>
+              <div className="flex items-start gap-3 border-b border-line-soft py-4">
+                <Layers size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
+                <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <dt className="flex-shrink-0 font-medium text-foreground">Solutions:</dt>
+                  <dd className="min-w-0 text-text-2">{study.meta.solutions}</dd>
+                </div>
               </div>
             </Reveal>
           )}
