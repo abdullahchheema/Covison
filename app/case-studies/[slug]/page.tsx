@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ArrowRight, Building2, Globe, Layers, ExternalLink } from 'lucide-react'
+import { ArrowRight, Building2, Globe, Layers, ExternalLink, User } from 'lucide-react'
 import { services, serviceCaseStudyMap } from '@/lib/site'
 import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/case-studies'
 import { PageHeader } from '@/components/ui/PageHeader'
@@ -49,7 +49,7 @@ export default async function CaseStudyDetailPage({
     ([, tag]) => tag === study.tag,
   )?.[0]
   const relatedService = services.find((s) => s.id === relatedServiceId)
-  const otherStudies = getAllCaseStudies().filter((cs) => cs.slug !== study.slug).slice(0, 3)
+  const otherStudies = getAllCaseStudies().filter((cs) => cs.slug !== study.slug).slice(0, 6)
 
   return (
     <>
@@ -71,41 +71,47 @@ export default async function CaseStudyDetailPage({
         </div>
       </PageHeader>
 
-      {study.meta && (
-        <Section spacing="lg">
-          <Reveal>
-            <dl className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {study.meta.industry && (
-                <div className="flex items-start gap-3">
-                  <Building2 size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
-                  <div>
-                    <dt className="text-xs text-text-3">Industry</dt>
-                    <dd className="text-sm font-medium text-foreground">{study.meta.industry}</dd>
-                  </div>
-                </div>
-              )}
-              {study.meta.market && (
-                <div className="flex items-start gap-3">
-                  <Globe size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
-                  <div>
-                    <dt className="text-xs text-text-3">Market</dt>
-                    <dd className="text-sm font-medium text-foreground">{study.meta.market}</dd>
-                  </div>
-                </div>
-              )}
-              {study.meta.solutions && (
-                <div className="flex items-start gap-3">
-                  <Layers size={18} className="mt-0.5 flex-shrink-0 text-brand" aria-hidden />
-                  <div>
-                    <dt className="text-xs text-text-3">Solutions</dt>
-                    <dd className="text-sm font-medium text-foreground">{study.meta.solutions}</dd>
-                  </div>
-                </div>
-              )}
-            </dl>
+      <Section spacing="lg">
+        <Reveal>
+          <h2 className="text-h2">Meet our client</h2>
+        </Reveal>
+        <dl className="mt-8 border-t border-line-soft">
+          <Reveal delay={0.02}>
+            <div className="flex items-center gap-3 border-b border-line-soft py-4">
+              <User size={18} className="flex-shrink-0 text-brand" aria-hidden />
+              <dt className="font-medium text-foreground">Client:</dt>
+              <dd className="text-text-2">{study.client}</dd>
+            </div>
           </Reveal>
-        </Section>
-      )}
+          {study.meta?.industry && (
+            <Reveal delay={0.04}>
+              <div className="flex items-center gap-3 border-b border-line-soft py-4">
+                <Building2 size={18} className="flex-shrink-0 text-brand" aria-hidden />
+                <dt className="font-medium text-foreground">Industry:</dt>
+                <dd className="text-text-2">{study.meta.industry}</dd>
+              </div>
+            </Reveal>
+          )}
+          {study.meta?.market && (
+            <Reveal delay={0.06}>
+              <div className="flex items-center gap-3 border-b border-line-soft py-4">
+                <Globe size={18} className="flex-shrink-0 text-brand" aria-hidden />
+                <dt className="font-medium text-foreground">Market:</dt>
+                <dd className="text-text-2">{study.meta.market}</dd>
+              </div>
+            </Reveal>
+          )}
+          {study.meta?.solutions && (
+            <Reveal delay={0.08}>
+              <div className="flex items-center gap-3 border-b border-line-soft py-4">
+                <Layers size={18} className="flex-shrink-0 text-brand" aria-hidden />
+                <dt className="font-medium text-foreground">Solutions:</dt>
+                <dd className="text-text-2">{study.meta.solutions}</dd>
+              </div>
+            </Reveal>
+          )}
+        </dl>
+      </Section>
 
       {/* Rich sections render only when the source content has been supplied. */}
       {study.whoFor && (
@@ -295,6 +301,20 @@ export default async function CaseStudyDetailPage({
               ))}
             </ul>
           )}
+        </Section>
+      )}
+
+      {study.midCtaHeading && study.midCtaBody && (
+        <Section variant="ink" spacing="md">
+          <Reveal>
+            <div className="mx-auto flex max-w-xl flex-col items-center gap-4 text-center">
+              <h2 className="text-h2 text-white">{study.midCtaHeading}</h2>
+              <p className="text-body-lg text-white/70">{study.midCtaBody}</p>
+              <Button href="/contact" onInk className="mt-2">
+                Book an AI workflow audit
+              </Button>
+            </div>
+          </Reveal>
         </Section>
       )}
 

@@ -40,13 +40,21 @@ export interface CaseStudy {
   builtPoints?: string[]
   builtOutro?: string
   capabilities?: string[]
-  pipeline?: string[]
+  /** Flow diagram stages, left to right. A plain string is a single-label box;
+   *  {label, detail} adds a short sub-line for a richer stage (e.g. what that
+   *  stage actually does). Mixing both forms in the same array is fine. */
+  pipeline?: (string | { label: string; detail?: string })[]
   intelligenceHeading?: string
   intelligenceBody?: string
   whyNotOffTheShelf?: string
   productionReality?: string[]
   outcomeTable?: CaseStudyOutcomeRow[]
   outcomeBullets?: string[]
+  /** Optional contextual CTA shown partway down the page, tailored to this
+   *  case study's specific pain point (distinct from the generic CTA every
+   *  page ends with). Both fields required together. */
+  midCtaHeading?: string
+  midCtaBody?: string
   /** Extra inline images beyond the hero, rendered as a gallery near the end of the write-up. */
   gallery?: CaseStudyImage[]
   /** A LinkedIn post URL to embed (e.g. https://www.linkedin.com/posts/company_...-activity-1234567890). */

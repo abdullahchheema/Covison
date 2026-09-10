@@ -19,7 +19,7 @@ export function TeamGrid() {
                 <p className="text-base font-semibold text-foreground">{name}</p>
                 <p className="mt-1 text-xs text-text-3">{role}</p>
               </div>
-              <p className="max-w-[32ch] text-sm leading-relaxed text-text-2">{bio[0]}</p>
+              <p className="min-h-32 max-w-[32ch] text-sm leading-relaxed text-text-2">{bio[0]}</p>
               {linkedin && (
                 <a
                   href={linkedin}
