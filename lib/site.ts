@@ -620,22 +620,22 @@ export const team = [
     name: 'Abdullah Imran',
     role: 'Co-Founder',
     education: 'SE @ SEECS',
-    linkedin: '',
-    bio: ['Handles the development and technical side of every project.'],
+    linkedin: 'https://www.linkedin.com/in/abdullahimr403/',
+    bio: ['Handles the technical direction at Covison, turning ideas into reliable products, systems, and digital experiences.'],
   },
   {
     name: 'Saad Rabbani',
     role: 'Co-Founder',
     education: 'EE @ SEECS',
-    linkedin: '',
-    bio: ["The strategist shaping how Covison approaches every engagement."],
+    linkedin: 'https://www.linkedin.com/in/saad-rabbani-a35208289/',
+    bio: ["Shapes the strategy behind Covison’s work, connecting business goals with practical solutions that create real value."],
   },
   {
     name: 'Muhammad Ali Murtaza',
     role: 'Co-Founder',
     education: 'BBA @ NBS',
-    linkedin: '',
-    bio: ['The business lead, driving growth and marketing for Covison.'],
+    linkedin: 'https://www.linkedin.com/in/muhammad-ali-murtaza60/',
+    bio: ['Leads business and growth at Covison, building relationships, shaping the brand, and turning opportunities into long-term partnerships.'],
   },
 ]
 
