@@ -61,6 +61,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // sameAs is only included once a real social profile URL exists, so this
+  // never asserts a profile that doesn't exist. Currently empty until
+  // siteConfig.linkedin (the company page, not a founder's) is filled in.
+  const sameAs = [siteConfig.linkedin].filter(Boolean)
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -70,6 +75,8 @@ export default function RootLayout({
         url: siteConfig.url,
         email: siteConfig.email,
         description: siteConfig.description,
+        logo: `${siteConfig.url}/logo-mark.png`,
+        ...(sameAs.length > 0 && { sameAs }),
       },
       {
         '@type': 'WebSite',

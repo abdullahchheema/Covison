@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { posts } from '@/lib/site'
+import { posts, siteConfig } from '@/lib/site'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
@@ -12,11 +12,43 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { FlowSteps } from '@/components/ui/FlowSteps'
 import { CTASection } from '@/components/sections/CTASection'
 
+const crmTitle = 'Covison CRM | Free CRM, No Credit Card Required'
+const crmDescription =
+  'Covison CRM is a free CRM for managing leads, customers, and sales pipelines from one workspace. No trial period, no credit card required.'
+
 export const metadata: Metadata = {
   alternates: { canonical: '/products/crm' },
-  title: 'Covison CRM | Your Sales Pipeline, Finally Working as One',
-  description:
-    'Covison CRM is a business platform for managing leads, customers, sales pipelines, and follow-ups from one unified workspace.',
+  title: crmTitle,
+  description: crmDescription,
+  openGraph: {
+    type: 'website',
+    url: `${siteConfig.url}/products/crm`,
+    title: crmTitle,
+    description: crmDescription,
+    siteName: siteConfig.name,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Covison CRM' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: crmTitle,
+    description: crmDescription,
+    images: ['/og.png'],
+  },
+}
+
+const crmJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Covison CRM',
+  url: 'https://crm.covison.com',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description: crmDescription,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
 }
 
 const problemPoints = [
@@ -79,6 +111,11 @@ const crmPosts = posts.filter((p) => p.relatedProduct === 'crm')
 export default function CrmProductPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(crmJsonLd) }}
+      />
+
       {/* 01: Hero */}
       <section className="relative isolate flex min-h-[70vh] items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -97,6 +134,9 @@ export default function CrmProductPage() {
             <p className="mt-7 max-w-[50ch] text-body-lg text-white/85">
               Manage leads, relationships, follow-ups, and sales workflows from one unified
               workspace, built by Covison.
+            </p>
+            <p className="mt-3 text-sm font-medium text-white">
+              Free to use. No trial period, no credit card required.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Button href="/contact" size="lg">

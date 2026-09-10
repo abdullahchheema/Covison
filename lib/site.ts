@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Covison',
   tagline: 'Build the future. Automate the rest.',
   description:
-    'Covison designs AI-powered systems and exceptional digital experiences for B2B companies ready to operate at a higher level.',
+    'Covison designs AI automation systems and exceptional digital experiences for B2B companies ready to operate at a higher level.',
   email: 'hello@covison.co',
   whatsapp: '447417579231',
   calLink: 'covison/30min',
@@ -368,6 +368,7 @@ export const products = [
     title: 'Covison CRM',
     tagline: 'Your sales pipeline, finally working as one.',
     short: 'Manage leads, relationships, follow-ups, and sales workflows from one unified workspace.',
+    free: true,
   },
 ]
 

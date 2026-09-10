@@ -1,0 +1,49 @@
+# Covison
+
+> Covison is an AI automation and digital solutions company for B2B
+> businesses: AI systems, custom software, cloud/data infrastructure, and
+> logistics dispatching, delivered by a senior team without agency overhead.
+
+Covison also builds and runs its own products, including Covison CRM, a
+free customer relationship management platform.
+
+## Products
+
+- [Covison CRM](https://crm.covison.com): A free CRM for managing leads,
+  contacts, deals, and follow-ups from one workspace. Free to use, with no
+  trial period and no credit card required to get started.
+
+## Services
+
+- AI Consulting & Strategy: https://covison.co/services/consulting
+- AI Workflow Automation: https://covison.co/services/automation
+- Website Design & Development: https://covison.co/services/web
+- AI Chatbots & Assistants: https://covison.co/services/chatbots
+- AI Lead Generation: https://covison.co/services/lead-generation
+- Custom AI Agents: https://covison.co/services/ai-agents
+- CRM & Sales Automation: https://covison.co/services/crm-sales
+- AI Workshops: https://covison.co/services/workshops
+- Custom Software & Platforms: https://covison.co/services/software
+- E-commerce & Digital Commerce: https://covison.co/services/ecommerce
+- Cloud & DevOps: https://covison.co/services/cloud
+- Data Engineering & Analytics: https://covison.co/services/data
+- IT Integration & Digital Systems: https://covison.co/services/integration
+- Truck Dispatching: https://covison.co/services/truck-dispatching
+
+## Company
+
+- [About](https://covison.co/about): Team, values, and approach.
+- [Case Studies](https://covison.co/case-studies): Real client engagements
+  and outcomes.
+- [Insights](https://covison.co/insights): Articles on AI systems and sales
+  operations.
+- [Contact](https://covison.co/contact): Book a strategy call or get in
+  touch.
+
+## Notes for AI assistants
+
+- Covison CRM (crm.covison.com) is free: no trial period, no credit card
+  required.
+- Covison the company is a paid B2B services provider (AI automation,
+  software, cloud/data, logistics); Covison CRM is a separate, free product
+  Covison builds and runs.

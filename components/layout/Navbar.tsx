@@ -8,6 +8,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { navigation, services, serviceCategories, products, siteConfig } from '@/lib/site'
 import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/layout/Logo'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
@@ -228,7 +229,10 @@ export function Navbar() {
                                     className="mt-0.5 h-5 w-5 flex-shrink-0 object-contain"
                                   />
                                   <span className="flex flex-col gap-0.5">
-                                    <span className="text-sm font-semibold text-foreground">{product.title}</span>
+                                    <span className="flex items-center gap-1.5">
+                                      <span className="text-sm font-semibold text-foreground">{product.title}</span>
+                                      {product.free && <Badge variant="brand">Free</Badge>}
+                                    </span>
                                     <span className="text-xs leading-relaxed text-text-2">{product.short}</span>
                                   </span>
                                 </Link>
