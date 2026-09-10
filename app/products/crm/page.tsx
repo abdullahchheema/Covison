@@ -102,7 +102,7 @@ export default function CrmProductPage() {
               <Button href="/contact" size="lg">
                 Book a demo
               </Button>
-              <Button href="https://covison-crm.vercel.app" variant="outline" size="lg" external>
+              <Button href="https://crm.covison.com" variant="outline" size="lg" external>
                 See how it works
               </Button>
             </div>
