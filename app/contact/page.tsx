@@ -47,7 +47,7 @@ export default function ContactPage() {
                   href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-full flex-col gap-6 rounded-xl bg-surface-2 p-8 transition-colors hover:bg-surface-3 sm:p-10"
+                  className="flex h-full flex-col gap-6 rounded-xl border border-line-soft bg-surface-2 p-8 transition-colors hover:bg-surface-3 sm:p-10"
                 >
                   <div className="flex flex-col gap-2">
                     <span className="eyebrow">02</span>
@@ -65,7 +65,7 @@ export default function ContactPage() {
               <Reveal delay={0.15}>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex h-full flex-col gap-6 rounded-xl bg-surface-2 p-8 transition-colors hover:bg-surface-3 sm:p-10"
+                  className="flex h-full flex-col gap-6 rounded-xl border border-line-soft bg-surface-2 p-8 transition-colors hover:bg-surface-3 sm:p-10"
                 >
                   <div className="flex flex-col gap-2">
                     <span className="eyebrow">03</span>

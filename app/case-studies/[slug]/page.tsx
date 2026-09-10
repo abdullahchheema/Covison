@@ -212,7 +212,7 @@ export default async function CaseStudyDetailPage({
             <Reveal delay={0.16}>
               <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
                 {study.capabilities.map((cap) => (
-                  <div key={cap} className="rounded-xl bg-surface-2 p-5 text-sm font-medium text-foreground">
+                  <div key={cap} className="rounded-xl bg-surface-3 p-5 text-sm font-medium text-foreground">
                     {cap}
                   </div>
                 ))}

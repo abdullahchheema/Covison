@@ -25,7 +25,7 @@ export function ServicesGrid() {
             <Reveal key={category.id} delay={i * 0.06}>
               <Link
                 href="/services"
-                className="group flex h-full flex-col gap-4 rounded-xl bg-surface-2 p-7 transition-colors hover:bg-surface-3"
+                className="group flex h-full flex-col gap-4 rounded-xl border border-line-soft bg-surface-2 p-7 transition-colors hover:bg-surface-3"
               >
                 <Icon size={22} className="text-brand" aria-hidden />
                 <div className="flex-1">

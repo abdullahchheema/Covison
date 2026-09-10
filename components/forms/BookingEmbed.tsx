@@ -5,7 +5,7 @@ export function BookingEmbed() {
   const calUrl = `https://cal.com/${siteConfig.calLink}`
 
   return (
-    <div className="flex flex-col gap-6 rounded-xl bg-surface-2 p-8 sm:p-10">
+    <div className="flex flex-col gap-6 rounded-xl border border-line-soft bg-surface-2 p-8 sm:p-10">
       <div className="flex flex-col gap-2">
         <span className="eyebrow">01</span>
         <p className="text-xl font-semibold text-foreground">Book a free strategy call</p>
