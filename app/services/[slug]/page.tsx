@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArrowRight, CheckCircle } from 'lucide-react'
-import { services, serviceCaseStudyMap, processSteps } from '@/lib/site'
+import { services, processSteps } from '@/lib/site'
 import { getAllCaseStudies } from '@/lib/case-studies'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Button } from '@/components/ui/Button'
@@ -41,7 +41,9 @@ export default async function ServiceDetailPage({
   const service = services.find((s) => s.id === slug)
   if (!service) notFound()
 
-  const relatedCaseStudy = getAllCaseStudies().find((cs) => cs.tag === serviceCaseStudyMap[service.id])
+  const relatedCaseStudies = getAllCaseStudies()
+    .filter((cs) => cs.tags.includes(service.id))
+    .slice(0, 3)
 
   // Truck Dispatching gets its own hero headline, subheadline, and CTA copy
   // (a trucker-facing pitch, not the AI-agency framing used elsewhere), while
@@ -123,13 +125,15 @@ export default async function ServiceDetailPage({
         </div>
       </Section>
 
-      {relatedCaseStudy && (
+      {relatedCaseStudies.length > 0 && (
         <Section spacing="lg">
           <Reveal>
             <SectionHeading eyebrow="Proof it works" title="Related work" />
           </Reveal>
           <div className="mt-10 border-t border-line-soft">
-            <CaseStudyCard study={relatedCaseStudy} />
+            {relatedCaseStudies.map((study) => (
+              <CaseStudyCard key={study.slug} study={study} />
+            ))}
           </div>
         </Section>
       )}

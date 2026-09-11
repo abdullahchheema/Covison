@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { posts } from '@/lib/site'
+import { posts, siteConfig } from '@/lib/site'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
@@ -20,10 +20,24 @@ export async function generateMetadata({
   const { slug } = await params
   const post = posts.find((p) => p.slug === slug)
   if (!post) return {}
+  const url = `${siteConfig.url}/insights/${post.slug}`
   return {
     alternates: { canonical: `/insights/${post.slug}` },
     title: post.title,
     description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url,
+      type: 'article',
+      images: [{ url: `${siteConfig.url}${post.image}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [`${siteConfig.url}${post.image}`],
+    },
   }
 }
 
@@ -36,8 +50,22 @@ export default async function InsightArticlePage({
   const post = posts.find((p) => p.slug === slug)
   if (!post) notFound()
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: `${siteConfig.url}${post.image}`,
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: post.author },
+    publisher: { '@type': 'Organization', name: siteConfig.name, logo: { '@type': 'ImageObject', url: `${siteConfig.url}/logo-mark.png` } },
+    mainEntityOfPage: `${siteConfig.url}/insights/${post.slug}`,
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <PageHeader
         crumbs={[{ label: 'Insights', href: '/insights' }]}
         eyebrow={post.category}
@@ -60,8 +88,19 @@ export default async function InsightArticlePage({
             {post.author} · {post.date}
             {post.readingTime && <> · {post.readingTime}</>}
           </p>
-          {/* Full article body renders here once written; the excerpt above stands on its own until then. */}
-          <div className="border-t border-line-soft pt-8">
+
+          <div className="flex flex-col gap-10 text-base leading-relaxed text-text-2">
+            {post.body.map((section) => (
+              <div key={section.heading} className="flex flex-col gap-4">
+                <h2 className="text-h3 text-foreground">{section.heading}</h2>
+                {section.paragraphs.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 border-t border-line-soft pt-8">
             <ShareLink />
           </div>
         </Container>

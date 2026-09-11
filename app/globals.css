@@ -39,7 +39,7 @@
   --on-danger: #ffffff;
   --on-info: #ffffff;
 
-  /* Permanently dark surface. Never redefined in .dark. */
+  /* Permanently dark surface (footer, ink plates), independent of page theme. */
   --ink: #120f1a;
 
   --radius-xs: 0.375rem;
@@ -66,57 +66,6 @@
   --radius: var(--radius-lg);
 }
 
-.dark {
-  --bg: #09090b;
-  --bg-warm: #070709;
-  --surface: #111114;
-  --surface-2: #17171c;
-  --surface-3: #1d1d23;
-
-  --text: #f7f5fa;
-  --text-2: #aaa5b4;
-  --text-3: #817b8b;
-
-  --line: #29272f;
-  --line-soft: #211f26;
-
-  --brand: #8b72ff;
-  --brand-hover: #9c87ff;
-  --brand-soft: #211a42;
-  --brand-indigo: #6366f1;
-  --brand-violet: #a78bfa;
-  --champagne: #d4b878;
-
-  --success: #42d39a;
-  --success-soft: #10271f;
-  --warning: #f1bb5c;
-  --warning-soft: #2b2210;
-  --danger: #ff737d;
-  --danger-soft: #2e1518;
-  --info: #69a8ff;
-  --info-soft: #14202e;
-
-  --on-brand: #09090b;
-  --on-success: #06140f;
-  --on-warning: #1a1206;
-  --on-danger: #1a0708;
-  --on-info: #04101f;
-
-  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.30);
-  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.36), 0 1px 2px rgb(0 0 0 / 0.24);
-  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.45), 0 2px 8px -2px rgb(0 0 0 / 0.30);
-  --shadow-lg: 0 20px 56px -16px rgb(0 0 0 / 0.55), 0 6px 20px -6px rgb(0 0 0 / 0.36);
-  --shadow-xl: 0 32px 80px -20px rgb(0 0 0 / 0.60), 0 12px 32px -8px rgb(0 0 0 / 0.40);
-
-  --background: var(--bg);
-  --foreground: var(--text);
-  --muted: var(--surface-2);
-  --muted-foreground: var(--text-2);
-  --border: var(--line);
-  --primary: var(--brand);
-  --primary-foreground: var(--on-brand);
-  --danger-foreground: var(--on-danger);
-}
 
 @theme inline {
   --color-bg: var(--bg);
@@ -271,10 +220,6 @@
       color-mix(in srgb, var(--color-brand) 16%, transparent) 0%,
       transparent 70%
     );
-  }
-
-  .dark .bloom {
-    background-image: none;
   }
 }
 

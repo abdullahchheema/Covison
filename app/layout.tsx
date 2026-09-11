@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import './globals.css'
-import { Providers } from './providers'
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
@@ -87,19 +86,17 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={geist.variable} suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" className={geist.variable}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Providers>
-          <AnnouncementBar />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppWidget />
-        </Providers>
+        <AnnouncementBar />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <WhatsAppWidget />
       </body>
     </html>
   )

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Figure } from '@/components/ui/Figure'
 import { Badge } from '@/components/ui/Badge'
 import { CaseStudy } from '@/lib/case-studies'
+import { getServicesByIds } from '@/lib/site'
 
 function monogram(client: string) {
   return client
@@ -15,6 +16,8 @@ function monogram(client: string) {
 
 /** Grid card for the case-studies index and related-projects lists: image on top, client + tag, title below. */
 export function CaseStudyTile({ study }: { study: CaseStudy }) {
+  const matchedServices = getServicesByIds(study.tags)
+
   return (
     <Link href={`/case-studies/${study.slug}`} className="group flex flex-col gap-4">
       <Figure
@@ -32,9 +35,15 @@ export function CaseStudyTile({ study }: { study: CaseStudy }) {
         className="aspect-[4/3] w-full rounded-xl transition-transform duration-200 group-hover:scale-[1.01]"
       />
       <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-wrap items-start justify-between gap-2">
           <span className="eyebrow">{study.client}</span>
-          <Badge variant="brand">{study.tag}</Badge>
+          <div className="flex flex-wrap justify-end gap-1.5">
+            {matchedServices.map((service) => (
+              <Badge key={service.id} variant="brand">
+                {service.title}
+              </Badge>
+            ))}
+          </div>
         </div>
         <h3 className="text-h3 transition-colors group-hover:text-brand">{study.title}</h3>
         <p className="text-sm leading-relaxed text-text-2">{study.result}</p>

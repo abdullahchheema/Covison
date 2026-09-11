@@ -359,6 +359,13 @@ export const services = [
   },
 ]
 
+/** Resolves case-study `tags` (service ids) to their full service records, dropping any that don't match. */
+export function getServicesByIds(ids: string[]) {
+  return ids
+    .map((id) => services.find((s) => s.id === id))
+    .filter((s): s is (typeof services)[number] => Boolean(s))
+}
+
 // Covison's own products, distinct from client services. Each gets a
 // dedicated page at /products/<id> with its own rich content, not the
 // service-detail template.
@@ -640,18 +647,6 @@ export const team = [
   },
 ]
 
-// Maps each service id to the tag of its matching case study (see lib/case-studies.ts),
-// used to cross-link service pages <-> case study pages without fuzzy string matching.
-export const serviceCaseStudyMap: Record<string, string> = {
-  automation: 'AI Content Engine',
-  web: 'Smart Transit Management System',
-  chatbots: 'AI Customer Support Automation',
-  'ai-agents': 'Personal Assistant AI',
-  // No matching case study for consulting, lead-generation, crm-sales, or
-  // workshops among current entries; those service pages simply render
-  // without a "related work" section until one exists.
-}
-
 export interface InsightPost {
   slug: string
   title: string
@@ -664,6 +659,8 @@ export interface InsightPost {
   relatedProduct?: string
   /** Reuses an existing case-study image (abstract, client-agnostic) rather than a dedicated /images/insights/ asset. */
   image: string
+  /** Full article body, rendered as H2 sections on the post's own page. */
+  body: { heading: string; paragraphs: string[] }[]
 }
 
 export const posts: InsightPost[] = [
@@ -678,6 +675,36 @@ export const posts: InsightPost[] = [
     readingTime: '4 min read',
     relatedProduct: 'crm',
     image: '/images/work/smallbiz-acquisitions-crm-daily-ai-qualification.png',
+    body: [
+      {
+        heading: 'The CRM as a filing cabinet',
+        paragraphs: [
+          'Traditional CRMs were designed to solve one problem: give a sales team a shared place to store contact records instead of scattering them across spreadsheets and inboxes. That was a real improvement over sticky notes and personal notebooks, and for a long time it was enough.',
+          'But storing information and acting on it are two different jobs. A contact record only tells you what happened. It does not follow up when a lead goes quiet, flag a deal that has stalled, or nudge a rep before a renewal date slips past. Most CRMs still expect a human to notice all of that and act on it manually, every single day.',
+        ],
+      },
+      {
+        heading: 'What working the pipeline actually looks like',
+        paragraphs: [
+          'A modern CRM does not wait to be checked. It watches the pipeline continuously and takes the next obvious step on its own: sending a follow-up when a lead has not replied, moving a deal to the next stage once a condition is met, or surfacing the few accounts that need attention today instead of burying them in a list of two hundred.',
+          'The difference is not a new dashboard. It is the system doing part of the job that used to depend entirely on someone remembering to do it.',
+        ],
+      },
+      {
+        heading: 'Why this shift is happening now',
+        paragraphs: [
+          'This was technically possible years ago, but it used to require custom engineering that only larger sales teams could justify. What has changed is that AI-assisted automation has made active follow-up and routing achievable without a dedicated ops team building it from scratch.',
+          'That shift is why "CRM" increasingly means something closer to a sales operating system than a database with a search bar.',
+        ],
+      },
+      {
+        heading: 'What to look for if you are switching',
+        paragraphs: [
+          'If you are evaluating a move away from a traditional CRM, the question worth asking is not whether it stores everything you need. Almost every option on the market does that. Ask instead what it does automatically once the information is in there: does it follow up without being told to, does it flag risk before a deal is already lost, and does it give you one place to see the whole pipeline instead of five.',
+          'That is the standard we built Covison CRM against, and it is free to use with no trial period and no credit card required, so it costs nothing to see whether it clears that bar for your own pipeline.',
+        ],
+      },
+    ],
   },
   {
     slug: 'how-automated-follow-ups-prevent-leads-from-slipping-through-the-cracks',
@@ -690,6 +717,36 @@ export const posts: InsightPost[] = [
     readingTime: '3 min read',
     relatedProduct: 'crm',
     image: '/images/work/strong-franchise-lead-qualification-at-scale.png',
+    body: [
+      {
+        heading: 'Most deals are lost to silence',
+        paragraphs: [
+          'When a deal falls through, it is tempting to assume a competitor won it. In practice, a lot more deals are lost to silence: a prospect showed real interest, a rep meant to follow up, and the moment passed. No one decided to lose the deal, it just was not followed up in time.',
+          'Silence is a much harder problem to notice than a lost deal to a competitor, because there is no clear signal, just an inbox that quietly stops getting a reply.',
+        ],
+      },
+      {
+        heading: 'Why manual follow-up breaks down at volume',
+        paragraphs: [
+          "Following up on five leads by memory is manageable. Following up on fifty, on top of calls, demos, and everything else on a rep's plate, is where things start slipping, not because reps are careless but because memory was never a reliable system to build a sales process on.",
+          'The leads most likely to fall through are not the ones that said no. They are the ones that went quiet after showing interest, exactly the ones worth the most effort to win back.',
+        ],
+      },
+      {
+        heading: 'What an automated sequence actually does',
+        paragraphs: [
+          'An automated follow-up sequence removes the dependency on someone remembering. When a lead goes quiet for a set number of days, the system sends the next message on its own, whether that is a check-in, a piece of useful content, or a direct nudge to schedule a call.',
+          "The rep still owns the relationship and steps in the moment there is a real reply. The system's job is only to make sure silence never wins by default.",
+        ],
+      },
+      {
+        heading: 'Keeping it from feeling automated',
+        paragraphs: [
+          'The failure mode to avoid is a sequence that reads like it was written for everyone and sent to no one in particular. The fix is not to avoid automation, it is to make the follow-up specific: reference what the lead actually asked about, keep the tone conversational, and stop the sequence the instant a real reply comes in.',
+          "That is the exact gap Covison CRM's automated follow-ups are built to close, and because it is free to use, testing it against your own pipeline costs nothing but the time it takes to set up a sequence.",
+        ],
+      },
+    ],
   },
   {
     slug: 'from-scattered-leads-to-one-intelligent-sales-pipeline',
@@ -702,6 +759,36 @@ export const posts: InsightPost[] = [
     readingTime: '5 min read',
     relatedProduct: 'crm',
     image: '/images/work/yourdelivery-hybrid-address-intelligence.png',
+    body: [
+      {
+        heading: 'The cost of a scattered pipeline',
+        paragraphs: [
+          'Ask five people on a sales team where a specific lead currently stands and you will often get five different answers: one from an inbox, one from a spreadsheet, one from memory. None of them are wrong exactly, they are just incomplete, because the information is split across tools that do not talk to each other.',
+          'The real cost is not the extra clicking between tabs. It is the decisions made on partial information: a deal chased that should have been deprioritized, or a hot lead left waiting because nobody had the full picture at the moment it mattered.',
+        ],
+      },
+      {
+        heading: 'What "one pipeline" actually fixes',
+        paragraphs: [
+          'Consolidating leads into a single pipeline does not just tidy things up visually. It means everyone, from a rep working a deal to a manager reviewing forecasts, is looking at the same source of truth instead of reconciling versions of it after the fact.',
+          'It also makes automation possible in the first place. A system cannot follow up on a lead it does not know about, and it cannot flag a stalled deal that lives in someone\'s personal notes instead of the pipeline.',
+        ],
+      },
+      {
+        heading: 'Consolidation is a process change, not just a tool',
+        paragraphs: [
+          'Buying a CRM does not automatically consolidate anything. Leads stay scattered if the team keeps working around the tool instead of through it, logging some deals and skipping others because the old habit was faster in the moment.',
+          'The tools that actually get adopted are the ones that fit into how the team already works closely enough that logging a lead is the path of least resistance, not an extra chore layered on top of the real work.',
+        ],
+      },
+      {
+        heading: 'Where to start',
+        paragraphs: [
+          'The most direct starting point is not migrating everything at once. It is picking the single source that currently causes the most confusion, usually a shared inbox or a spreadsheet everyone half-trusts, and moving just that into the pipeline first.',
+          'Covison CRM was built around that kind of gradual consolidation rather than an all-or-nothing migration, and since it is free to use, there is no cost to trying it with just that one messy source before deciding to move the rest.',
+        ],
+      },
+    ],
   },
   {
     slug: 'why-your-crm-should-work-around-your-business',
@@ -714,6 +801,36 @@ export const posts: InsightPost[] = [
     readingTime: '4 min read',
     relatedProduct: 'crm',
     image: '/images/work/bridgebot-ai-copilot-knowledge-graph.png',
+    body: [
+      {
+        heading: 'The default CRM trap',
+        paragraphs: [
+          'Most CRMs ship with a default pipeline: a handful of generic stages meant to apply to any business. It is an easy starting point, which is exactly why so many teams never move past it, even when their actual sales process does not look like that at all.',
+          "Over time, the gap between the tool's assumptions and how the business actually sells becomes a quiet source of friction: stages that do not apply, fields nobody fills in, and workarounds that exist purely to make the software cooperate.",
+        ],
+      },
+      {
+        heading: 'Signs your process is bending to fit the software',
+        paragraphs: [
+          'A few reliable signs: reps keeping a second, unofficial tracker because the CRM does not capture something that matters to how you sell. Deal stages that get skipped or renamed informally because the built-in ones do not map to reality. Reports that need manual cleanup before anyone trusts them.',
+          "None of these are people problems. They are evidence that the software's structure does not match the business's structure, and the team is quietly compensating for it.",
+        ],
+      },
+      {
+        heading: 'What flexible actually means in practice',
+        paragraphs: [
+          'Flexible does not mean unlimited custom code. It means the pipeline stages, the fields that matter, and the automation triggers can be shaped around how deals actually move through your business, whether that is a short transactional sale or a longer, multi-stakeholder process.',
+          'The test is simple: can someone on your team set this up to match your process without waiting on a developer, or does every adjustment turn into a ticket in someone else\'s backlog.',
+        ],
+      },
+      {
+        heading: 'Configuring, not customizing',
+        paragraphs: [
+          'The distinction worth caring about is configuring versus customizing. Configuring means adjusting settings within a tool built to bend. Customizing usually means paying someone to modify code, which is slower, more fragile, and rarely gets revisited once the business changes again.',
+          'That is the principle behind how Covison CRM is structured, and because it is free to use with no trial period, it is a low-effort way to see whether your actual process fits without a migration project attached to finding out.',
+        ],
+      },
+    ],
   },
   {
     slug: 'how-ai-is-changing-the-modern-sales-workflow',
@@ -726,6 +843,36 @@ export const posts: InsightPost[] = [
     readingTime: '5 min read',
     relatedProduct: 'crm',
     image: '/images/work/noah-secure-ai-legacy-code-regulated-environments.png',
+    body: [
+      {
+        heading: 'From writing assistant to workflow participant',
+        paragraphs: [
+          'The first wave of AI in sales was mostly about writing: a better cold email, a faster proposal draft, a cleaner meeting summary. Useful, but it left the actual workflow, the follow-ups, the routing, the tracking, exactly as manual as it was before.',
+          'The more meaningful shift is AI moving from a tool a rep opens on request to something embedded in the workflow itself, doing the busywork that happens between conversations rather than just helping draft the conversation.',
+        ],
+      },
+      {
+        heading: 'Where AI actually saves time today',
+        paragraphs: [
+          "The clearest wins are not glamorous. It is AI drafting a follow-up the moment a lead goes quiet, without a rep remembering to write one from scratch. It is classifying an inbound inquiry so it lands with the right person automatically. It is summarizing a long email thread into the two lines that actually matter before a call.",
+          "None of that requires the AI to make judgment calls on strategy. It requires it to reliably handle the repetitive parts so a rep's attention goes to the conversations that actually need a human.",
+        ],
+      },
+      {
+        heading: 'What AI should not replace',
+        paragraphs: [
+          'The judgment calls, when to push and when to back off, how to read a hesitant prospect, whether a discount is worth offering, still belong to a person who knows the account and the relationship. AI is well suited to consistency and speed, not to reading a room.',
+          'The systems that hold up in practice treat AI as the layer that removes busywork, with a clear handoff to a human the moment a conversation needs actual judgment.',
+        ],
+      },
+      {
+        heading: 'Adopting it without overhauling your stack',
+        paragraphs: [
+          'You do not need to replace your tools to get this benefit. Most of it comes from adding an automation layer on top of what you already use: your CRM, your inbox, your calendar, wired together so the busywork happens without anyone opening five different tabs to do it by hand.',
+          'That is the layer Covison CRM is built to provide, and because it is free to use, testing it against one real workflow, like automated follow-ups, is a reasonable place to start before deciding how far to take it.',
+        ],
+      },
+    ],
   },
   {
     slug: 'building-a-sales-system-that-never-forgets-a-follow-up',
@@ -738,5 +885,35 @@ export const posts: InsightPost[] = [
     readingTime: '3 min read',
     relatedProduct: 'crm',
     image: '/images/work/confidential-fmcg-data-modernization.png',
+    body: [
+      {
+        heading: 'Memory is the weakest link in most sales processes',
+        paragraphs: [
+          'Ask most sales teams why a deal went cold and the honest answer is often some version of "we meant to follow up." Not a lack of interest from the buyer, not a lost negotiation, just a follow-up that depended on someone remembering to send it, and they did not.',
+          'A sales process that relies on memory is only as reliable as the busiest day of everyone involved, and there is always a busier day coming.',
+        ],
+      },
+      {
+        heading: '"Never forgets" as an operational property',
+        paragraphs: [
+          'A system that never forgets a follow-up is not about hiring someone more organized. It means every lead that goes quiet has a trigger attached to it: a set number of days of silence automatically queues the next message, without anyone needing to notice the gap first.',
+          "The reps still write the message and make the judgment call on tone, but the trigger to act does not depend on anyone's memory or willpower on a given day.",
+        ],
+      },
+      {
+        heading: 'Designing for structure, not discipline',
+        paragraphs: [
+          'Telling a team to "be better about follow-ups" rarely works for long, because it treats a structural problem as a discipline problem. The fix that actually holds up is removing the dependency on memory entirely, so forgetting is no longer a possible failure mode.',
+          'This is the same reason checklists work in high-stakes fields that are far more disciplined than most sales teams: structure outperforms willpower at scale, every time.',
+        ],
+      },
+      {
+        heading: 'The compounding effect',
+        paragraphs: [
+          'The value of never missing a follow-up is not obvious from any single deal. It shows up over a quarter, in the accumulated leads that would have gone quiet and did not, each one a small compounding return on a system doing the remembering instead of a person.',
+          "That is the specific gap Covison CRM's automated follow-up triggers are built to close, and since it is free to use with no trial period, setting it up on even one pipeline is enough to see the effect start compounding.",
+        ],
+      },
+    ],
   },
 ]

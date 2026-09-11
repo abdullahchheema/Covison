@@ -17,7 +17,10 @@ export interface CaseStudy {
   /** Derived from the filename (content/case-studies/<slug>.json), not read from the file itself. */
   slug: string
   client: string
-  tag: string
+  /** One or more `services[].id` values (see lib/site.ts) this engagement demonstrates.
+   *  Drives both the badges shown on case-study cards and the case-study <-> service
+   *  cross-links, so a case study can match more than one service. */
+  tags: string[]
   title: string
   /** One-line tagline shown under the title on the detail page. */
   subtitle?: string

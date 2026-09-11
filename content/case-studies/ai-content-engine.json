@@ -1,6 +1,6 @@
 {
   "client": "Larkspur Software",
-  "tag": "AI Content Engine",
+  "tags": ["automation", "ai-agents"],
   "title": "An AI Content Engine for a US B2B SaaS Company",
   "subtitle": "Writing every piece of content once, instead of rebuilding it per platform",
   "illustrative": true,

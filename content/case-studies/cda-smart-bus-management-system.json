@@ -1,6 +1,6 @@
 {
   "client": "Inlights",
-  "tag": "Smart Transit Management System",
+  "tags": ["software"],
   "title": "A Real-Time Fleet Management System for Islamabad's Metro Bus Service",
   "subtitle": "Live tracking, route control, and station management in one platform",
   "blurb": "Built a real-time bus fleet management system for Inlights, a company working with the Capital Development Authority (CDA) Islamabad, covering route and stop creation, live bus tracking and speed monitoring, bus-to-route assignment, and per-stop digital screen and announcement control.",

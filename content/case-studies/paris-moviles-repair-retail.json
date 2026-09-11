@@ -1,6 +1,6 @@
 {
   "client": "Paris Móviles",
-  "tag": "Repair & Retail",
+  "tags": ["web", "ecommerce"],
   "title": "A Bilingual Booking and E-Commerce Platform",
   "subtitle": "Unifying two shops, repairs and retail, into one platform",
   "blurb": "Built a bilingual (Spanish/English) website and admin dashboard for Paris Móviles, a mobile repair and electronics retailer in Vitoria-Gasteiz with two physical locations, covering repair bookings, quotations, order tracking, product sales, and full back-office management.",

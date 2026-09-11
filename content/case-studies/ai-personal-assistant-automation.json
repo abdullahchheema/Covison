@@ -1,6 +1,6 @@
 {
   "client": "Whitfield Homes",
-  "tag": "Personal Assistant AI",
+  "tags": ["ai-agents", "automation"],
   "title": "A Personal Assistant AI for a UK Real Estate Agency",
   "subtitle": "Ask a plain question, get your schedule back, no tabs, no manual scanning",
   "illustrative": true,

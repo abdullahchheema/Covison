@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ArrowRight, Building2, Globe, Layers, ExternalLink, User } from 'lucide-react'
-import { services, serviceCaseStudyMap } from '@/lib/site'
+import { getServicesByIds } from '@/lib/site'
 import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/case-studies'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Badge } from '@/components/ui/Badge'
@@ -45,10 +45,7 @@ export default async function CaseStudyDetailPage({
   const study = getCaseStudyBySlug(slug)
   if (!study) notFound()
 
-  const relatedServiceId = Object.entries(serviceCaseStudyMap).find(
-    ([, tag]) => tag === study.tag,
-  )?.[0]
-  const relatedService = services.find((s) => s.id === relatedServiceId)
+  const matchedServices = getServicesByIds(study.tags)
   const otherStudies = getAllCaseStudies().filter((cs) => cs.slug !== study.slug).slice(0, 6)
 
   return (
@@ -61,7 +58,11 @@ export default async function CaseStudyDetailPage({
         heroImage={`/images/work/${study.slug}.png`}
       >
         <div className="flex flex-wrap items-center gap-3">
-          <Badge variant="brand">{study.tag}</Badge>
+          {matchedServices.map((service) => (
+            <Badge key={service.id} variant="brand">
+              {service.title}
+            </Badge>
+          ))}
           {study.websiteUrl && (
             <Button href={study.websiteUrl} external variant="outline" size="sm">
               Visit {study.client}
@@ -379,18 +380,23 @@ export default async function CaseStudyDetailPage({
         </Section>
       )}
 
-      {relatedService && (
+      {matchedServices.length > 0 && (
         <Section variant="surface" spacing="md">
           <Reveal>
-            <p className="eyebrow mb-8">The service behind this project</p>
+            <p className="eyebrow mb-8">
+              {matchedServices.length > 1 ? 'The services behind this project' : 'The service behind this project'}
+            </p>
           </Reveal>
           <div className="border-t border-line-soft">
-            <EditorialRow
-              index="→"
-              title={relatedService.title}
-              description={relatedService.short}
-              href={`/services/${relatedService.id}`}
-            />
+            {matchedServices.map((service) => (
+              <EditorialRow
+                key={service.id}
+                index="→"
+                title={service.title}
+                description={service.short}
+                href={`/services/${service.id}`}
+              />
+            ))}
           </div>
         </Section>
       )}

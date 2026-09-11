@@ -1,6 +1,6 @@
 {
   "client": "Kestrel Freight",
-  "tag": "AI Customer Support Automation",
+  "tags": ["chatbots", "automation"],
   "title": "An AI Support System for a US Logistics Company",
   "subtitle": "Reading, understanding, and replying to support emails without a human touching most of them",
   "illustrative": true,

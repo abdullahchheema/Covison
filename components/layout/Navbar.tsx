@@ -11,7 +11,6 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/layout/Logo'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { getServiceIcon } from '@/lib/service-icons'
 import { cn } from '@/lib/cn'
 
@@ -255,14 +254,12 @@ export function Navbar() {
           </ul>
 
           <div className="hidden items-center gap-2 md:flex">
-            <ThemeToggle />
             <Button href="/contact#talk" variant="outline" size="sm">
               Book a call
             </Button>
           </div>
 
           <div className="flex items-center gap-1 md:hidden">
-            <ThemeToggle />
             <button
               ref={toggleRef}
               type="button"

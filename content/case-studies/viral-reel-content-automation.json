@@ -1,6 +1,6 @@
 {
   "client": "Marlow & Finch",
-  "tag": "Viral Reel Automation",
+  "tags": ["automation", "ai-agents"],
   "title": "An End-to-End Viral Reel Automation for a Fashion E-Commerce Brand",
   "subtitle": "One workflow, concept to finished reel, with no manual editing in between",
   "illustrative": true,

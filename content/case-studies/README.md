@@ -5,7 +5,7 @@ automatically, no code changes needed. The filename (without `.json`) becomes
 the URL: `content/case-studies/acme-widget-automation.json` becomes
 `/case-studies/acme-widget-automation`.
 
-Only `client`, `tag`, `title`, `blurb`, and `result` are required. Everything
+Only `client`, `tags`, `title`, `blurb`, and `result` are required. Everything
 else is optional: add fields as real content becomes available, and the
 detail page renders only the sections you've filled in. A file with just the
 five required fields still gets a clean page (title, blurb, hero image).
@@ -15,7 +15,7 @@ five required fields still gets a clean page (title, blurb, hero image).
 ```json
 {
   "client": "Acme Co",
-  "tag": "Workflow Automation",
+  "tags": ["automation"],
   "title": "Cutting Invoice Processing From Days to Minutes",
   "blurb": "Automated Acme's invoice intake and approval routing, removing a full-time manual bottleneck.",
   "result": "Invoice processing time cut by 90%"
@@ -27,7 +27,7 @@ five required fields still gets a clean page (title, blurb, hero image).
 | Field | Type | Notes |
 |---|---|---|
 | `client` | string | Required. Also shown as the first row of the "Meet our client" section, which every page renders. |
-| `tag` | string | Required. Short category shown as a badge and used for the index filter dropdown. |
+| `tags` | string[] | Required. One or more `services[].id` values from `lib/site.ts` (e.g. `"automation"`, `"chatbots"`, `"web"`). Rendered as badges and used to cross-link this case study with every matching service page, and vice versa, and for the index filter dropdown. |
 | `title` | string | Required. The H1. |
 | `subtitle` | string | Optional tagline shown under the title. |
 | `blurb` | string | Required. 1-2 sentences, used on index cards, related-project grids, and as the page description if `subtitle` is absent. |

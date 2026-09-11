@@ -187,57 +187,91 @@ client service, so keep it a step more polished and composed than the
 service heroes: fewer forms, more negative space, a slightly more premium,
 considered arrangement.
 
-## 10. Case study tiles
+## 10. Case study tiles (current 8 engagements)
 
 Each of these files does double duty: a framed 4:3 crop on the
-`/case-studies` index and related-project grids, and a full-bleed
-background (with dark scrim, see above) on that case study's own detail
-page. Generate at a wide landscape ratio (e.g. 16:9, 1600×900) so both
-crops work; `object-cover` handles the rest.
+`/case-studies` index, homepage pain points, and related-project grids, and
+a full-bleed background (with dark scrim, see above) on that case study's
+own detail page. Generate at a wide landscape ratio (e.g. 16:9, 1600×900)
+so both crops work; `object-cover` handles the rest.
 
-**Already generated, just renamed** (produced for an earlier set of
-placeholder case studies and reassigned by theme to the current real
-projects; no regeneration needed):
+Keep every one of these in the same light, ivory-ground palette as the
+shared style block above (`#f8f7f4` ground, violet `#6d4aff` / lavender
+`#8b5cf6` / warm grey forms). None of them should read as moody or dark on
+their own; the dark scrim used on the detail-page hero is applied at render
+time, not baked into the image, so generate these exactly as bright and
+light as the card treatment expects.
 
-| File | Reused for |
-|---|---|
-| `sanjh-localized-hiring-marketplace-mvp.png` | Sanjh |
-| `bridgebot-ai-copilot-knowledge-graph.png` | BridgeBot |
-| `bizmila-ai-startup-quality-investor-readiness.png` | Bizmila |
-| `noah-secure-ai-legacy-code-regulated-environments.png` | NOAH |
-| `strong-franchise-lead-qualification-at-scale.png` | Strong |
-| `yourdelivery-hybrid-address-intelligence.png` | YourDelivery |
-| `confidential-fmcg-data-modernization.png` | Confidential FMCG |
-| `smallbiz-acquisitions-crm-daily-ai-qualification.png` | SmallBiz Acquisitions |
+The eight files below replace the previous placeholder-project set (renamed
+reuses of images from case studies that have since been removed); those old
+files now live under `public/images/insights/` instead (see §11) and these
+are fresh prompts tailored to the current real engagements.
 
-**Still needed** (3 case study tiles, plus one supporting image for
-BridgeBot's "What we found" pull-quote):
+**`public/images/work/ai-content-engine.png`** (Larkspur Software)
+A single warm grey form at the center splitting into three parallel violet
+and lavender forms of matching size, each flowing outward along its own
+clean path, suggesting one idea becoming three finished outputs at once.
 
-**`public/images/work/t1c-neuromorphic-sdk.png`**
-A dense, precise lattice of small interlocking geometric forms in violet and
-warm grey, suggesting a foundational, technical infrastructure layer built
-with exacting structure.
+**`public/images/work/ai-customer-support-automation.png`** (Kestrel Freight)
+A loose cluster of small warm grey forms converging toward one central
+violet form, which sorts them into two clean rows, a large violet group and
+a small lavender group, suggesting incoming messages being classified and
+resolved automatically.
 
-**`public/images/work/infinity-genai-logo-prototyping.png`**
-One warm grey form branching into several softly varied violet and lavender
-copies arranged in a fan, suggesting rapid creative iteration from a single
-starting point.
+**`public/images/work/ai-influencer-automation.png`** (Rowan & Sage)
+A single well-defined violet form at one edge of the frame generating a
+steady, evenly spaced row of seven smaller matching lavender forms across
+the frame, suggesting one consistent identity producing a full week of
+content on its own.
 
-**`public/images/work/no-answer-production-ai-receptionist-platform.png`**
-Concentric soft rounded rings in violet and lavender emanating outward from
-a central warm grey form, suggesting a calm, always-on voice or signal.
+**`public/images/work/ai-personal-assistant-automation.png`** (Whitfield Homes)
+A small violet form facing a warm grey grid of larger blocks, with a single
+block glowing lavender in immediate response, suggesting a plain question
+instantly answered against a full schedule.
 
-**`public/images/work/bridgebot-ai-copilot-knowledge-graph-identified.png`** (21:9, e.g. 2100×900)
-A supporting image for the "What we found" section: several warm grey forms
-loosely scattered, each linked by thin glowing violet threads converging on
-one central form, suggesting fragmented sources being pulled into a single
-continuous thread.
+**`public/images/work/cda-smart-bus-management-system.png`** (Inlights)
+Several small violet forms moving along smooth curved warm-grey pathways
+that all connect to one central lavender hub form, suggesting a live
+network of vehicles being tracked and coordinated from a single point.
+
+**`public/images/work/viral-reel-content-automation.png`** (Marlow & Finch)
+A single small warm grey form transforming stage by stage through a smooth
+horizontal sequence of increasingly refined violet and lavender forms,
+ending in one polished, larger finished form, suggesting a raw idea
+becoming a finished piece of content end to end.
+
+**`public/images/work/royal-pizza-sahowala-pos-system.png`** (Royal Pizza Sahowala)
+A scattered pile of small irregular warm grey forms on one side of the
+frame, mirrored by the same number of forms neatly stacked into one clean
+violet column on the other side, suggesting handwritten chaos replaced by a
+single organized system.
+
+**`public/images/work/paris-moviles-repair-retail.png`** (Paris Móviles)
+Two distinct forms, one warm grey and one lavender, each trailing a few
+small satellite shapes, moving toward each other and merging into a single
+unified violet form at the center, suggesting two separate shops becoming
+one connected platform.
 
 ## 11. Insight article images (6)
 
-4:3 compositions (e.g. 1200×900) for the six CRM-related articles on
-`/insights` and the "From the blog" section of `/products/crm`. Editorial,
-slightly more abstract-illustrative than literal, same house style.
+The six Insights posts currently reuse existing case-study artwork (real,
+already-generated files from `public/images/work/`) rather than dedicated
+images, since none of the placeholder posts map to a specific new visual
+idea yet. Current assignment, set via each post's `image` field in
+`lib/site.ts`:
+
+| Post | Reuses |
+|---|---|
+| `why-modern-businesses-are-moving-beyond-traditional-crms` | `smallbiz-acquisitions-crm-daily-ai-qualification.png` |
+| `how-automated-follow-ups-prevent-leads-from-slipping-through-the-cracks` | `strong-franchise-lead-qualification-at-scale.png` |
+| `from-scattered-leads-to-one-intelligent-sales-pipeline` | `yourdelivery-hybrid-address-intelligence.png` |
+| `why-your-crm-should-work-around-your-business` | `bridgebot-ai-copilot-knowledge-graph.png` |
+| `how-ai-is-changing-the-modern-sales-workflow` | `noah-secure-ai-legacy-code-regulated-environments.png` |
+| `building-a-sales-system-that-never-forgets-a-follow-up` | `confidential-fmcg-data-modernization.png` |
+
+If dedicated insight art is wanted later, these prompts (4:3, e.g.
+1200×900, same house style) are ready to generate and swap in by pointing
+each post's `image` field at `/images/insights/<slug>.png` instead:
 
 **`public/images/insights/why-modern-businesses-are-moving-beyond-traditional-crms.png`**
 A single rigid grid of small warm grey forms with one corner breaking free

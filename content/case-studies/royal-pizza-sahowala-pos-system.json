@@ -1,6 +1,6 @@
 {
   "client": "Royal Pizza Sahowala",
-  "tag": "Business Automation",
+  "tags": ["software"],
   "title": "A Touchscreen POS and Reporting Dashboard",
   "subtitle": "From paper tickets to an electronic order-punching system",
   "blurb": "Built a desktop touchscreen POS and order-punching system for a pizza restaurant that previously ran entirely on handwritten registers and paper receipts, paired with a live reporting dashboard.",
