@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: 'Build the future. Automate the rest.',
   description:
     'Covison designs AI automation systems and exceptional digital experiences for B2B companies ready to operate at a higher level.',
-  email: 'hello@covison.co',
+  email: 'outreach@covison.com',
   whatsapp: '447417579231',
   calLink: 'covison/30min',
   url: 'https://covison.co',
