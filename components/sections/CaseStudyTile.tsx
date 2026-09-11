@@ -35,15 +35,18 @@ export function CaseStudyTile({ study }: { study: CaseStudy }) {
         className="aspect-[4/3] w-full rounded-xl transition-transform duration-200 group-hover:scale-[1.01]"
       />
       <div className="flex flex-col gap-2">
-        <div className="flex flex-wrap items-start justify-between gap-2">
-          <span className="eyebrow">{study.client}</span>
-          <div className="flex flex-wrap justify-end gap-1.5">
-            {matchedServices.map((service) => (
-              <Badge key={service.id} variant="brand">
-                {service.title}
-              </Badge>
-            ))}
-          </div>
+        <span className="eyebrow">{study.client}</span>
+        {/* min-h reserves space for the worst case (2 lines of wrapped badges,
+            e.g. two long service names) so every card's title lines up with its
+            row siblings regardless of how many lines its own badges wrap to.
+            Kept on its own row (not sharing a line with the eyebrow above) so
+            that reservation is a fixed, predictable amount. */}
+        <div className="flex min-h-12 flex-wrap items-start gap-1.5">
+          {matchedServices.map((service) => (
+            <Badge key={service.id} variant="brand">
+              {service.title}
+            </Badge>
+          ))}
         </div>
         <h3 className="text-h3 transition-colors group-hover:text-brand">{study.title}</h3>
         <p className="text-sm leading-relaxed text-text-2">{study.result}</p>
