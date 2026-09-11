@@ -21,7 +21,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
       className="row-hover flex items-center gap-5 border-b border-line-soft px-1 py-6"
     >
       <Figure
-        src={`/images/work/${study.slug}.png`}
+        src={`/images/work/${study.slug}.webp`}
         alt=""
         sizes="56px"
         fallback={

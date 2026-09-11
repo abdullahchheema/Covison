@@ -55,7 +55,7 @@ export default async function CaseStudyDetailPage({
         eyebrow={study.client}
         title={study.title}
         description={study.subtitle ?? study.blurb}
-        heroImage={`/images/work/${study.slug}.png`}
+        heroImage={`/images/work/${study.slug}.webp`}
       >
         <div className="flex flex-wrap items-center gap-3">
           {matchedServices.map((service) => (

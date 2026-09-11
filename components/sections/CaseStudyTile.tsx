@@ -21,7 +21,7 @@ export function CaseStudyTile({ study }: { study: CaseStudy }) {
   return (
     <Link href={`/case-studies/${study.slug}`} className="group flex flex-col gap-4">
       <Figure
-        src={`/images/work/${study.slug}.png`}
+        src={`/images/work/${study.slug}.webp`}
         alt=""
         sizes="(min-width: 1024px) 363px, (min-width: 640px) 50vw, 100vw"
         fallback={
